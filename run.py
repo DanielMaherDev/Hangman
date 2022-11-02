@@ -29,15 +29,23 @@ def start_game():
     2. Read The Rules
     3. View Leaderboard? \n \n""")
     print('Please enter the number which corresponds to your selection! \n')
-    input('Number:')
+    main_menu_choice = int(input('Number:'))
+    return main_menu_choice
 
 
 def main():
     """
     Run game functions
     """
-    start_game()
-
+    main_menu_choice = start_game()
+    if main_menu_choice == 1:
+        print('starting game')
+    elif main_menu_choice == 2:
+        print('RULES')
+    elif main_menu_choice == 3:
+        print('leaderboard')
+    else:
+        return
 
 main()
 
