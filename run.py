@@ -1,7 +1,11 @@
 import random
 from words import list_of_words
 
+
 def start_game():
+    """
+    Initial screen upon game load
+    """
     print("""
     
  __ __   ____  ____    ____  ___ ___   ____  ____  
@@ -26,6 +30,7 @@ def start_game():
     3. View Leaderboard? \n \n""")
     print('Please enter the number which corresponds to your selection! \n')
     input('Number:')
+
 
 def main():
     """
