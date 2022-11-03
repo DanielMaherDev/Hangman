@@ -7,7 +7,7 @@ def start_game():
     Initial screen upon game load
     """
     print("""
-    
+
  __ __   ____  ____    ____  ___ ___   ____  ____  
 |  |  | /    ||    \  /    ||   |   | /    ||    \ 
 |  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
@@ -15,7 +15,7 @@ def start_game():
 |  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
 |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
-                                                   
+
 
     """)
 
@@ -47,6 +47,8 @@ def start_hangman(word, num_lives):
     word_blank = "_" * len(word)
     print(f'Your word contains {len(word)} characters')
     print(f'You have {num_lives} lives!')
+    print(f'{word_blank}')
+
 
 def main():
     """
@@ -64,5 +66,7 @@ def main():
     else:
         return
 
+
 main()
+
 
