@@ -2,6 +2,105 @@ import random
 from words import list_of_words
 
 
+HANGMAN = (
+    """
+ ------
+ |    |
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |
+ |
+ |
+ |
+ |
+ |
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |   -+-
+ | 
+ |   
+ |   
+ |   
+ |   
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |  /-+-
+ |   
+ |   
+ |   
+ |   
+ |   
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |  /-+-/
+ |   
+ |   
+ |   
+ |   
+ |   
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |  /-+-/
+ |    |
+ |   
+ |   
+ |   
+ |   
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |  /-+-/
+ |    |
+ |    |
+ |   | 
+ |   | 
+ |   
+----------
+""",
+"""
+ ------
+ |    |
+ |    O
+ |  /-+-/
+ |    |
+ |    |
+ |   | |
+ |   | |
+ |  
+----------
+""")
+
+
 def start_game():
     """
     Initial screen upon game load
@@ -48,7 +147,7 @@ def start_hangman(word, num_lives):
     print(f'Your word contains {len(word)} characters')
     print(f'You have {num_lives} lives!')
     print(f'{word_blank}')
-
+    print(HANGMAN[0])
 
 def main():
     """
