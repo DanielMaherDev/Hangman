@@ -157,13 +157,13 @@ def make_guess(guess_number, num_lives, word):
         if len(this_guess) > 1:
             print('noooo')
             raise ValueError(
-            f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n Please try again'
+            f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
             )
             
         elif (len(this_guess) == 1 and this_guess.isalpha() 
               and this_guess in guesses):
             raise ValueError(
-            f'"{this_guess}" has already been guessed. Please try again'
+            f'"{this_guess}" has already been guessed.'
             )
         elif not this_guess.isalpha():
             raise ValueError(
@@ -171,9 +171,8 @@ def make_guess(guess_number, num_lives, word):
             )
         else:
             print('ok')
-    except ValueError as err:
-        f"{err}.\n Please try again.\n"
-    
+    except ValueError as e:
+        print(f"{e}.\n Please try again.\n")
 
 
 def main():
