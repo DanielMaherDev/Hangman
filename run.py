@@ -154,52 +154,22 @@ def make_guess(guess_number, num_lives, word):
     print(f'You have {num_lives} lives!')
     this_guess = input('Please choose a letter to guess:')
     try:
-            if len(player_try) > 1:
+        if len(this_guess) > 1:
+            raise ValueError(
+            print(f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n Please try again')
+            )
+        elif (len(this_guess) == 1 and this_guess.isalpha() 
+        and this_guess in guesses):
                 raise ValueError(
-                    f" You can only guess 1 letter at a time, you guessed"
-                    f" {len(player_try)} characters"
+                print(f'"{this_guess}" has already been guessed. Please try again')
                 )
-
-            elif not player_try.isalpha():
-                raise ValueError(
-                    f" You can only guess letters, you guessed {(player_try)}"
-                    f" which is not a letter"
-                )
-
-            elif len(player_try) == 1 and player_try.isalpha():
-                if player_try in guesses:
-                    raise ValueError(
-                        f" You have already guessed {(player_try)}"
-                    )
-
-                elif player_try not in word:
-
-                    message = f" {text_colors.RED}{(player_try)} is not in"\
-                              f" the word. You lose a life.{text_colors.WHITE}"
-
-                    guesses.append(player_try)
-                    lives -= 1
-
-                else:
-
-                    message = f" {text_colors.GREEN}{player_try} is in the"\
-                              f" word. Well done!{text_colors.WHITE}"
-
-                    guesses.append(player_try)
-                    word_template_list = list(word_template)
-                    indices = [i for i, letter in enumerate(word)
-                               if letter == player_try]
-                    for index in indices:
-                        word_template_list[index] = player_try
-                        word_template = "".join(word_template_list)
-                    if "_" not in word_template:
-                        game_over = True
-
-        except ValueError as e:
+        else:
+            print('ok')
+    except ValueError as e:
             print(f"{text_colors.RED}{e}.\n Please try again.\n"
                   f"{text_colors.WHITE}")
-            continue
-    
+
+
 
 def main():
     """
