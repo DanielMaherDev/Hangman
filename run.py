@@ -150,33 +150,37 @@ def start_hangman(word, num_lives):
 
 
 def make_guess(guess_number, num_lives, word):
-    print(HANGMAN[guess_number] + '\n')
-    print(f'You have {num_lives} lives! \n')
-    this_guess = input('Please choose a letter to guess:')
-    try:
-        if len(this_guess) > 1:
-            print('noooo')
-            raise ValueError(
-            f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
-            )
-            
-        elif (len(this_guess) == 1 and this_guess.isalpha() 
-              and this_guess in guesses):
-            raise ValueError(
-            f'"{this_guess}" has already been guessed.'
-            )
-        elif not this_guess.isalpha():
-            raise ValueError(
-            f" Only letters are valid guesses, but you guessed {this_guess}"
-            )
-        elif this_guess not in word:
-            print(f"{this_guess} is not in the word. You lose a life!")
-            guesses.append(this_guess)
-            print(guess_number)
-        else:
-            print('ok')
-    except ValueError as e:
-        print(f"{e}.\n Please try again.\n")
+    game_over = False
+    while not game_over and num_lives > 0:
+        print(HANGMAN[guess_number] + '\n')
+        print(f'You have {num_lives} lives! \n')
+        this_guess = input('Please choose a letter to guess:')
+        try:
+            if len(this_guess) > 1:
+                print('noooo')
+                raise ValueError(
+                f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
+                )
+                    
+            elif (len(this_guess) == 1 and this_guess.isalpha() 
+                and this_guess in guesses):
+                raise ValueError(
+                f'"{this_guess}" has already been guessed.'
+                )
+            elif not this_guess.isalpha():
+                raise ValueError(
+                f" Only letters are valid guesses, but you guessed {this_guess}"
+                )
+            elif this_guess not in word:
+                print(f"{this_guess} is not in the word. You lose a life!")
+                guesses.append(this_guess)
+                print(guess_number)
+                num_lives -= 1
+                guess_number += 1
+            else:
+                print('ok')
+        except ValueError as e:
+            print(f"{e}.\n Please try again.\n")
 
 
 def main():
@@ -190,8 +194,7 @@ def main():
     game_over = False
     if main_menu_choice == 1:
         start_hangman(word, num_lives)
-        while not game_over and num_lives > 0:
-            make_guess(guess_number, num_lives, word)
+        make_guess(guess_number, num_lives, word)
     elif main_menu_choice == 2:
         print('RULES')
     elif main_menu_choice == 3:
