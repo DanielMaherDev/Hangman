@@ -32,6 +32,8 @@ def start_game():
     main_menu_choice = int(input('Number:'))
     return main_menu_choice
 
+def start_hangman(word, num_lives):
+
 
 def main():
     """
@@ -39,7 +41,9 @@ def main():
     """
     main_menu_choice = start_game()
     if main_menu_choice == 1:
-        print('starting game')
+        word = list_of_words[random.randint(0, 3)]
+        num_lives = 7
+        start_hangman(word, num_lives)
     elif main_menu_choice == 2:
         print('RULES')
     elif main_menu_choice == 3:
