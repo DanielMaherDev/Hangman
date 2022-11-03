@@ -43,19 +43,20 @@ def get_word():
     return word
 
 
-#def start_hangman(word, num_lives):
-
-
+def start_hangman(word, num_lives):
+    word_blank = "_" * len(word)
+    print(f'Your word contains {len(word)} characters')
+    print(f'You have {num_lives} lives!')
 
 def main():
     """
     Run game functions
     """
     main_menu_choice = start_game()
-    set_difficulty()
+    num_lives = set_difficulty()
+    word = get_word()
     if main_menu_choice == 1:
-        print('start game')
- #       start_hangman(word, num_lives)
+        start_hangman(word, num_lives)
     elif main_menu_choice == 2:
         print('RULES')
     elif main_menu_choice == 3:
