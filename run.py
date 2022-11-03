@@ -169,6 +169,10 @@ def make_guess(guess_number, num_lives, word):
             raise ValueError(
             f" Only letters are valid guesses, but you guessed {this_guess}"
             )
+        elif this_guess not in word:
+            print(f"{this_guess} is not in the word. You lose a life!")
+            guesses.append(this_guess)
+            print(guess_number)
         else:
             print('ok')
     except ValueError as e:
