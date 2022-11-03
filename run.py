@@ -147,7 +147,13 @@ def start_hangman(word, num_lives):
     print(f'Your word contains {len(word)} characters')
     print(f'You have {num_lives} lives!')
     print(f'{word_blank}')
-    print(HANGMAN[0])
+
+
+def make_guess(guess_number):
+    print(HANGMAN[guess_number])
+    input('Please choose a letter to guess:')
+    
+
 
 def main():
     """
@@ -156,8 +162,10 @@ def main():
     main_menu_choice = start_game()
     num_lives = set_difficulty()
     word = get_word()
+    guess_number = 0
     if main_menu_choice == 1:
         start_hangman(word, num_lives)
+        make_guess(guess_number)
     elif main_menu_choice == 2:
         print('RULES')
     elif main_menu_choice == 3:
