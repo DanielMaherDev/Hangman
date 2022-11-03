@@ -155,6 +155,7 @@ def make_guess(guess_number, num_lives, word):
     this_guess = input('Please choose a letter to guess:')
     try:
         if len(this_guess) > 1:
+            print('noooo')
             raise ValueError(
             f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n Please try again'
             )
@@ -172,7 +173,7 @@ def make_guess(guess_number, num_lives, word):
             print('ok')
     except ValueError as err:
         f"{err}.\n Please try again.\n"
-
+    
 
 
 def main():
@@ -183,9 +184,11 @@ def main():
     num_lives = set_difficulty()
     word = get_word()
     guess_number = 0
+    game_over = False
     if main_menu_choice == 1:
         start_hangman(word, num_lives)
-        make_guess(guess_number, num_lives, word)
+        while not game_over and num_lives > 0:
+            make_guess(guess_number, num_lives, word)
     elif main_menu_choice == 2:
         print('RULES')
     elif main_menu_choice == 3:
