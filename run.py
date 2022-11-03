@@ -161,7 +161,8 @@ def make_guess(guess_number, num_lives, word):
                 raise ValueError(
                 f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
                 )
-                    
+            elif this_guess == "":
+                print('Please enter a guess')                    
             elif (len(this_guess) == 1 and this_guess.isalpha() 
                 and this_guess in guesses):
                 raise ValueError(
@@ -178,7 +179,8 @@ def make_guess(guess_number, num_lives, word):
                 num_lives -= 1
                 guess_number += 1
             else:
-                print('ok')
+                print(f'Great Guess! {this_guess} is in the word!')
+           
         except ValueError as e:
             print(f"{e}.\n Please try again.\n")
 
