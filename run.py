@@ -150,24 +150,28 @@ def start_hangman(word, num_lives):
 
 
 def make_guess(guess_number, num_lives, word):
-    print(HANGMAN[guess_number])
-    print(f'You have {num_lives} lives!')
+    print(HANGMAN[guess_number] + '\n')
+    print(f'You have {num_lives} lives! \n')
     this_guess = input('Please choose a letter to guess:')
     try:
         if len(this_guess) > 1:
             raise ValueError(
-            print(f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n Please try again')
+            f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n Please try again'
             )
+            
         elif (len(this_guess) == 1 and this_guess.isalpha() 
-        and this_guess in guesses):
-                raise ValueError(
-                print(f'"{this_guess}" has already been guessed. Please try again')
-                )
+              and this_guess in guesses):
+            raise ValueError(
+            f'"{this_guess}" has already been guessed. Please try again'
+            )
+        elif not this_guess.isalpha():
+            raise ValueError(
+            f" Only letters are valid guesses, but you guessed {this_guess}"
+            )
         else:
             print('ok')
-    except ValueError as e:
-            print(f"{text_colors.RED}{e}.\n Please try again.\n"
-                  f"{text_colors.WHITE}")
+    except ValueError as err:
+        f"{err}.\n Please try again.\n"
 
 
 
