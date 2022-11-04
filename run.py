@@ -150,14 +150,16 @@ def start_hangman(word, num_lives):
 
 
 def make_guess(guess_number, num_lives, word):
+    word_blank = "_" * len(word)
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[guess_number] + '\n')
+        print(f'{word_blank}')
+
         print(f'You have {num_lives} lives! \n')
         this_guess = input('Please choose a letter to guess:')
         try:
             if len(this_guess) > 1:
-                print('noooo')
                 raise ValueError(
                 f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
                 )
@@ -180,6 +182,8 @@ def make_guess(guess_number, num_lives, word):
                 guess_number += 1
             else:
                 print(f'Great Guess! {this_guess} is in the word!')
+                guesses.append(this_guess)
+
            
         except ValueError as e:
             print(f"{e}.\n Please try again.\n")
