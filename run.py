@@ -186,8 +186,7 @@ def make_guess(guess_number, num_lives, word):
                     if this_guess == word_as_list[x]:
                         word_blanks_as_list[x] = this_guess
                     x = x+1
-            print(word_blanks_as_list)
-                
+                word_blank = "".join(word_blanks_as_list)
                         
                         
         except ValueError as e:
