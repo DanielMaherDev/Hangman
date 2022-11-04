@@ -142,19 +142,15 @@ def get_word():
     word = list_of_words[random.randint(0, len(list_of_words)-1)]
     return word
 
-
-def start_hangman(word, num_lives):
-    word_blank = "_" * len(word)
-    print(f'Your word contains {len(word)} characters')
-    print(f'{word_blank}')
-
-
 def make_guess(guess_number, num_lives, word):
+    print(f'Your word contains {len(word)} characters')
     word_blank = "_" * len(word)
+    word_as_list = [i for i in word]
+    print(word_as_list)
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[guess_number] + '\n')
-        print(f'{word_blank}')
+        print(f'Your word: {word_blank}')
 
         print(f'You have {num_lives} lives! \n')
         this_guess = input('Please choose a letter to guess:')
@@ -166,7 +162,7 @@ def make_guess(guess_number, num_lives, word):
             elif this_guess == "":
                 print('Please enter a guess')                    
             elif (len(this_guess) == 1 and this_guess.isalpha() 
-                and this_guess in guesses):
+                  and this_guess in guesses):
                 raise ValueError(
                 f'"{this_guess}" has already been guessed.'
                 )
@@ -183,8 +179,11 @@ def make_guess(guess_number, num_lives, word):
             else:
                 print(f'Great Guess! {this_guess} is in the word!')
                 guesses.append(this_guess)
-
-           
+                x = 0
+                #for x in word:
+                 #   if this_guess == word[x]
+                        
+                        
         except ValueError as e:
             print(f"{e}.\n Please try again.\n")
 
@@ -199,7 +198,6 @@ def main():
     guess_number = 0
     game_over = False
     if main_menu_choice == 1:
-        start_hangman(word, num_lives)
         make_guess(guess_number, num_lives, word)
     elif main_menu_choice == 2:
         print('RULES')
