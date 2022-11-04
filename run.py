@@ -145,8 +145,8 @@ def get_word():
 def make_guess(guess_number, num_lives, word):
     print(f'Your word contains {len(word)} characters')
     word_blank = "_" * len(word)
-    word_as_list = [i for i in word]
-    print(word_as_list)
+    word_blanks_as_list = [i for i in word_blank]
+    print(word_blanks_as_list)
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[guess_number] + '\n')
@@ -180,8 +180,12 @@ def make_guess(guess_number, num_lives, word):
                 print(f'Great Guess! {this_guess} is in the word!')
                 guesses.append(this_guess)
                 x = 0
-                #for x in word:
-                 #   if this_guess == word[x]
+                for letter in word:
+                    if this_guess == letter:
+                        word_blanks_as_list[x] = this_guess
+                        x += 1
+            print(word_blanks_as_list)
+                
                         
                         
         except ValueError as e:
