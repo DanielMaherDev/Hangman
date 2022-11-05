@@ -135,8 +135,15 @@ def start_game():
         2. Read The Rules
         3. View Leaderboard? \n \n""")
         print('Please enter the number which corresponds to your selection! \n')
-        main_menu_choice = int(input('Number:'))
-        return main_menu_choice
+        main_menu_choice = input('Number:')
+        choice_made = False
+        while choice_made != True:
+                if main_menu_choice == "1":
+                    return main_menu_choice
+                    choice_made = True
+                else:
+                    print('Invalid option, please enter the numer which corresponds to one of the available options')
+                    main_menu_choice = input('Number:')
 
 
 def set_difficulty():
@@ -147,6 +154,7 @@ def set_difficulty():
 def get_word():
     word = list_of_words[random.randint(0, len(list_of_words)-1)]
     return word
+
 
 def make_guess(guess_number, num_lives, word):
     print(f'Your word contains {len(word)} characters')
@@ -217,11 +225,11 @@ def main():
     word = get_word()
     guess_number = 0
     game_over = False
-    if main_menu_choice == 1:
+    if main_menu_choice == "1":
         make_guess(guess_number, num_lives, word)
-    elif main_menu_choice == 2:
+    elif main_menu_choice == "2":
         print('RULES')
-    elif main_menu_choice == 3:
+    elif main_menu_choice == "3":
         print('leaderboard')
     else:
         return
