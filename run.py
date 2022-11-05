@@ -156,11 +156,12 @@ def make_guess(guess_number, num_lives, word):
 
     print(word_blanks_as_list)
     game_over = False
-    while not game_over and num_lives > 0:
-        print(HANGMAN[guess_number] + '\n')
-        print(f'Your word: {word_blank}')
 
-        print(f'You have {num_lives} lives! \n')
+    print(HANGMAN[guess_number] + '\n')
+    print(f'Your word: {word_blank}')
+    print(f'You have {num_lives} lives! \n')
+    while not game_over and num_lives > 0:
+
         this_guess = input('Please choose a letter to guess:')
         try:
             if len(this_guess) > 1:
