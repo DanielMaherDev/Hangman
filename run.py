@@ -247,9 +247,6 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
             except ValueError as e:
                 print(f"{e}.\n Please try again.\n")
         if num_lives == 0:
-            num_lives -= 1
-            guess_number += 1
-            hangman_start_number += 1
             print(HANGMAN[hangman_start_number] + '\n')
             print(f'Unlucky. You ran out of lives! The correct word was {word}')
 
