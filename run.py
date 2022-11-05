@@ -4,6 +4,21 @@ from words import list_of_words
 guesses = []
 
 HANGMAN = (
+        """
+ |
+ |
+----------
+""",
+    """
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+----------
+""",
     """
  ------
  |    |
