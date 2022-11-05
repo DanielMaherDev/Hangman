@@ -121,16 +121,22 @@ def start_game():
 
     print('Welcome to HangMan!\n')
     print('What is your name?\n \n')
+    name = ""
     name = input('ENTER YOUR NAME:')
-    print(f"\n Welcome, {name}")
-    print("""
-    Would you like to:
-    1. Start Game
-    2. Read The Rules
-    3. View Leaderboard? \n \n""")
-    print('Please enter the number which corresponds to your selection! \n')
-    main_menu_choice = int(input('Number:'))
-    return main_menu_choice
+    while name == "":
+        print('Please enter a name')
+        name = input('ENTER YOUR NAME:')
+
+    if name != "":
+        print(f"\n Welcome, {name}")
+        print("""
+        Would you like to:
+        1. Start Game
+        2. Read The Rules
+        3. View Leaderboard? \n \n""")
+        print('Please enter the number which corresponds to your selection! \n')
+        main_menu_choice = int(input('Number:'))
+        return main_menu_choice
 
 
 def set_difficulty():
