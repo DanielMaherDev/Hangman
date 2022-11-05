@@ -189,7 +189,7 @@ def get_word():
     return word
 
 
-def make_guess(guess_number, num_lives, word):
+def make_guess(guess_number, num_lives, word, hangman_start_number):
     print(f'Your word contains {len(word)} characters')
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
@@ -198,7 +198,7 @@ def make_guess(guess_number, num_lives, word):
     print(word_blank)
     game_over = False
     while not game_over and num_lives > 0:
-        print(HANGMAN[guess_number] + '\n')
+        print(HANGMAN[hangman_start_number] + '\n')
         print(f'Your word: {word_blank}')
 
         print(f'You have {num_lives} lives! \n')
@@ -227,6 +227,7 @@ def make_guess(guess_number, num_lives, word):
                     print(guess_number)
                     num_lives -= 1
                     guess_number += 1
+                    hangman_start_number += 1
                     guess_made = True
                 else:
                     print(f'Great Guess! {this_guess} is in the word!')
@@ -257,9 +258,14 @@ def main():
     num_lives = set_difficulty()
     word = get_word()
     guess_number = 0
-    game_over = False
+    if num_lives == 5:
+        hangman_start_number = 4
+    elif num_lives == 7:
+        hangman_start_number = 2
+    elif num_lives == 9:
+        hangman_start_number = 0
     if main_menu_choice == "1":
-        make_guess(guess_number, num_lives, word)
+        make_guess(guess_number, num_lives, word, hangman_start_number)
     elif main_menu_choice == "2":
         print('RULES')
     elif main_menu_choice == "3":
