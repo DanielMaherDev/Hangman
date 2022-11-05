@@ -199,14 +199,14 @@ def make_guess(guess_number, num_lives, word):
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
+                        print('YOU WIN!')
                             
                             
             except ValueError as e:
                 print(f"{e}.\n Please try again.\n")
         if num_lives == 0:
             print(f'Unlucky. You ran out of lives! The correct word was {word}')
-        else:
-            print('You win!')
+
 
 def main():
     """
