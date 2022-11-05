@@ -147,9 +147,27 @@ def start_game():
 
 
 def set_difficulty():
-    num_lives = 7
+    print("""You have 3 Levels of Difficulty:
+    1. Easy
+    2. Medium
+    3. Hard""")
+    print('Please choose the number corresponding to your preferred level of difficulty')
+    difficulty = input('Difficulty:')
+    choice_made = False
+    while choice_made != True:
+        if difficulty == "1":
+            choice_made = True
+            num_lives = 9
+        elif difficulty == "2":
+            num_lives = 7
+            choice_made = True
+        elif difficulty == "3":
+            num_lives = 5
+            choice_made = True
+        else:
+            print('Invalid option, please enter the numer which corresponds to one of the available options')
+            difficulty = input('Number:')
     return num_lives
-
 
 def get_word():
     word = list_of_words[random.randint(0, len(list_of_words)-1)]
@@ -162,7 +180,7 @@ def make_guess(guess_number, num_lives, word):
     word_blanks_as_list = [i for i in word_blank]
     word_as_list = [i for i in word]
 
-    print(word_blanks_as_list)
+    print(word_blank)
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[guess_number] + '\n')
