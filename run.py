@@ -207,7 +207,7 @@ def make_guess(guess_number, num_lives, word):
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print('YOU WIN!')
+                        print(f"YOU WIN! The word was {word}. \nYou finished with {num_lives} guesses remaining!")
                             
                             
             except ValueError as e:
