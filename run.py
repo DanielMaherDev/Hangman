@@ -307,12 +307,15 @@ def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
                         game_over = True
                         print(f"\n{colors.GREEN}YOU WIN!{colors.RESET} \n \nThe word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {num_lives} guesses remaining!")
                         new_score = [name, difficulty, num_lives]
-                        print(new_score)
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
-                       # print(f"worksheet updated successfully\n")        
-
-                    
+                        print('\nYour Score has been added to the leaderboard')
+                        print("""Would you like to:
+                        1. View the leaderboard
+                        2. Play Again
+                        3. End Game""")
+                        print('Please choose the number that corresponds to your selection')  
+                        input('Number:')
                             
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
