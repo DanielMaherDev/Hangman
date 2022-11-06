@@ -149,11 +149,13 @@ def display_leaderboard():
     leaderboard = SHEET.worksheet("leaderboard")
 
     columns = []
+    headers = []
     for ind in range(1, 4):
         column = leaderboard.col_values(ind)
         columns.append(column[-5:])
     for column in columns:
-        print(column)
+        headers.append(column[0])
+    print(headers)
     print('What would you like to do?')
     input('Please choose an option:\n')
 
