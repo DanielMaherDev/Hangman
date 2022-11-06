@@ -165,6 +165,8 @@ def display_leaderboard():
 
 
 def start_game():
+    guesses = []
+
     """
     Initial screen upon game load
     """
