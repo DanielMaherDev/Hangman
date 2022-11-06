@@ -177,7 +177,7 @@ def display_leaderboard():
             else:
                 raise ValueError(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
                 main_menu_choice = input('Number:\n')
-        except error as e:
+        except ValueError as e:
             print({e})
 
 def start_game():
