@@ -157,11 +157,16 @@ def display_leaderboard():
     for column in columns:
         headers.append(column[0])
         i=1
+    for i in range(0,3):
+        headers[i] = "{:<15}".format(headers[i])
     print(f"""\n-----------------------------------
-{headers[0]}| {headers[1]}| {headers[2]}|""")
+{headers[0]} {headers[1]} {headers[2]}""")
     scores = leaderboard.get_all_values()
     scores.pop(0)
     for score in scores:
+        for i in range(0, 3):
+            score[i] = "{:<15}".format(score[i])
+       
         print(f"{score[0]} {score[1]} {score[2]}")
     print('What would you like to do?')
     input('Please choose an option:\n')
