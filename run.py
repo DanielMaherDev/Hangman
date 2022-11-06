@@ -223,8 +223,8 @@ def start_game():
                 /-+-/
                     |
                     |
-                | |
-                | |
+                   | |
+                   | |
                 """)
                 print(f"""
                 Would you like to:\n
