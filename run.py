@@ -191,39 +191,49 @@ def start_game():
 
     global name 
     name = ""
-    name = input('ENTER YOUR NAME:\n')
-    while name == "":
-        print('Please enter a name')
+    name_given = False
+    while name_given == False:
         name = input('ENTER YOUR NAME:\n')
+        try:
+            if name == "":   
+                raise ValueError('Please enter a name')
+            if len(name) > 10:
+                raise ValueError('please enter a name of 10 or less characters')
+            if not name.isalnum():
+                raise ValueError('Please enter a name')
 
-    if name != "":
-        print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
-        print("""
-            O
-          /-+-/
-            |
-            |
-           | |
-           | |
-        """)
-        print(f"""
-        Would you like to:\n
-        {colors.BLUE}1. Start Game \n
-        {colors.RED}2. Read The Rules \n
-        {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
-        print('Please enter the number which corresponds to your selection! \n')
-        main_menu_choice = input('Number:\n')
-        choice_made = False
-        while choice_made != True:
-                if main_menu_choice == "1":
-                    return main_menu_choice
-                    choice_made = True
-                elif main_menu_choice == "3":
-                    return main_menu_choice
-                    choice_made = True
-                else:
-                    print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                    main_menu_choice = input('Number:\n')
+            else:
+                name_given = True
+                print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
+                print("""
+                    O
+                /-+-/
+                    |
+                    |
+                | |
+                | |
+                """)
+                print(f"""
+                Would you like to:\n
+                {colors.BLUE}1. Start Game \n
+                {colors.RED}2. Read The Rules \n
+                {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
+                print('Please enter the number which corresponds to your selection! \n')
+                main_menu_choice = input('Number:\n')
+                choice_made = False
+                while choice_made != True:
+                        if main_menu_choice == "1":
+                            return main_menu_choice
+                            choice_made = True
+                        elif main_menu_choice == "3":
+                            return main_menu_choice
+                            choice_made = True
+                        else:
+                            print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                            main_menu_choice = input('Number:\n')
+        except ValueError as e:
+            print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
+
 
 
 def set_difficulty():
