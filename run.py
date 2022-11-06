@@ -168,7 +168,7 @@ def start_game():
             |
            | |
            | |
-        \n""")
+        """)
         print(f"""
         Would you like to:\n
         {colors.BLUE}1. Start Game \n
