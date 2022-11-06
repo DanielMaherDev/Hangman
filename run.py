@@ -14,6 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Leaderboard')
 
+global guesses
 guesses = []
 
 
@@ -165,6 +166,7 @@ def display_leaderboard():
 
 
 def start_game():
+    global guesses
     guesses = []
 
     """
@@ -331,7 +333,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
                                 choice_made = True
                             else:
                                 print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                                difficulty = input('Number:\n')
+                                choice = input('Number:\n')
                             
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
