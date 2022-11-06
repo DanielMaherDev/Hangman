@@ -165,8 +165,9 @@ def display_leaderboard():
     1. Play Game
     2. Read rules""")
     choice_made = False
-    choice = input('Number')
     while choice_made != True:
+        choice = input('Number:')
+
         try:
             if choice == "1":
                 choice_made = True
@@ -175,10 +176,9 @@ def display_leaderboard():
             elif choice == "2":
                 choice_made = True
             else:
-                raise ValueError(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                main_menu_choice = input('Number:\n')
+                raise ValueError(f'\nWHOOPS! That is not a valid option! \nPlease enter a valid option, using the number which corresponds to your selection \n')
         except ValueError as e:
-            print({e})
+            print(f'{colors.RED}{e}{colors.RESET}') 
 
 def start_game():
     global guesses
