@@ -167,17 +167,18 @@ def display_leaderboard():
     choice_made = False
     choice = input('Number')
     while choice_made != True:
-        if choice == "1":
-            choice_made = True
-            num_lives = set_difficulty()
-            make_guess(num_lives)
-        elif choice == "2":
-            return main_menu_choice
-            choice_made = True
-        else:
-            print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-            main_menu_choice = input('Number:\n')
-
+        try:
+            if choice == "1":
+                choice_made = True
+                num_lives = set_difficulty()
+                make_guess(num_lives)
+            elif choice == "2":
+                choice_made = True
+            else:
+                raise ValueError(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                main_menu_choice = input('Number:\n')
+        except error as e:
+            print({e})
 
 def start_game():
     global guesses
@@ -220,7 +221,7 @@ def start_game():
                 print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
                 print("""
                     O
-                /-+-/
+                  /-+-/
                     |
                     |
                    | |
