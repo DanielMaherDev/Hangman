@@ -215,28 +215,29 @@ def get_word():
 
 
 def make_guess(guess_number, num_lives, word, hangman_start_number):
-    print(f'\n Lets do this! \nYour word contains {len(word)} characters')
+    print(f'\nLets do this!\n \nYour word contains {colors.GREEN}{len(word)}{colors.RESET} characters')
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
     word_as_list = [i for i in word]
 
-    print(word_blank)
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[hangman_start_number] + '\n')
-        print(f'Your word: {word_blank}')
+        print(f'Your word: {word_blank} \n')
 
         print(f'You have {num_lives} lives! \n')
         guess_made = False
         while guess_made == False:
-            this_guess = input('Please choose a letter to guess:')
+            this_guess = input('Please choose a letter to guess:').lower()
             try:
                 if len(this_guess) > 1:
                     raise ValueError(
-                    f'You can only guess 1 letter, but you guessed {len(this_guess)} characters! \n'
+                    f'You can only guess 1 letter, but you guessed {len(this_guess)} characters!'
                     )
                 elif this_guess == "":
-                    print('Please enter a guess')                    
+                    raise ValueError(
+                    f'You need to enter a guess.'
+                    )
                 elif (len(this_guess) == 1 and this_guess.isalpha() 
                     and this_guess in guesses):
                     raise ValueError(
@@ -270,7 +271,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
                             
                             
             except ValueError as e:
-                print(f"{e}.\n Please try again.\n")
+                print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
         if num_lives == 0:
             print(HANGMAN[hangman_start_number] + '\n')
             print(f'Unlucky. You ran out of lives! The correct word was {word}')
