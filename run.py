@@ -1,5 +1,18 @@
+import gspread
+from google.oauth2.service_account import Credentials
 import random
 from words import list_of_words
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('Leaderboard')
 
 guesses = []
 
@@ -133,7 +146,14 @@ HANGMAN = (
 
 
 def display_leaderboard():
-    print('leaderboard')
+    leaderboard = SHEET.worksheet("leaderboard")
+
+    columns = []
+    for ind in range(1, 4):
+        column = leaderboard.col_values(ind)
+        columns.append(column[-5:])
+    for column in columns:
+        print(column)
     print('What would you like to do?')
     input('Please choose an option:')
 
@@ -289,6 +309,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
 
 
 def main():
+
     """
     Run game functions
     """
