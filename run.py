@@ -160,7 +160,7 @@ def start_game():
         name = input('ENTER YOUR NAME:')
 
     if name != "":
-        print(f"\n Welcome, {name}")
+        print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
         print("""
             O
           /-+-/
@@ -168,7 +168,7 @@ def start_game():
             |
            | |
            | |
-        \n \n""")
+        \n""")
         print(f"""
         Would you like to:\n
         {colors.BLUE}1. Start Game \n
@@ -182,16 +182,16 @@ def start_game():
                     return main_menu_choice
                     choice_made = True
                 else:
-                    print(f'{colors.RED}WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection\n')
+                    print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
                     main_menu_choice = input('Number:')
 
 
 def set_difficulty():
-    print("""You have 3 Levels of Difficulty:
-    1. Easy
-    2. Medium
-    3. Hard""")
-    print('Please choose the number corresponding to your preferred level of difficulty')
+    print(f"""Awesome, lets play! \n \n You have 3 Levels of Difficulty:\n
+    {colors.GREEN}1. Easy\n
+    {colors.CYAN}2. Medium\n
+    {colors.RED}3. Hard{colors.RESET}\n""")
+    print('Please choose the number corresponding to your preferred level of difficulty \n')
     difficulty = input('Difficulty:')
     choice_made = False
     while choice_made != True:
@@ -205,7 +205,7 @@ def set_difficulty():
             num_lives = 5
             choice_made = True
         else:
-            print(f'{colors.RED}WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection\n')
+            print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
             difficulty = input('Number:')
     return num_lives
 
@@ -215,7 +215,7 @@ def get_word():
 
 
 def make_guess(guess_number, num_lives, word, hangman_start_number):
-    print(f'Your word contains {len(word)} characters')
+    print(f'\n Lets do this! \nYour word contains {len(word)} characters')
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
     word_as_list = [i for i in word]
