@@ -228,6 +228,8 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
         print(f'You have {num_lives} lives! \n')
         guess_made = False
         while guess_made == False:
+            if guess_number > 0:
+                print(f'\n Guesses: {colors.BOLD}{guesses}{colors.RESET} \n')
             this_guess = input('Please choose a letter to guess:').lower()
             try:
                 if len(this_guess) > 1:
