@@ -315,7 +315,21 @@ def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
                         2. Play Again
                         3. End Game""")
                         print('Please choose the number that corresponds to your selection')  
-                        input('Number:')
+                        choice = input('Number:')
+                        choice_made = False
+                        while choice_made != True:
+                            if choice == "1":
+                                choice_made = True
+                                display_leaderboard()
+                            elif choice == "2":
+                                num_lives = 7
+                                main()
+                            elif choice == "3":
+                                num_lives = 5
+                                choice_made = True
+                            else:
+                                print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                                difficulty = input('Number:\n')
                             
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
