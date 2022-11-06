@@ -5,13 +5,13 @@ guesses = []
 
 
 class colors:
-RED   = "\033[1;31m"  
-BLUE  = "\033[1;34m"
-CYAN  = "\033[1;36m"
-GREEN = "\033[0;32m"
-RESET = "\033[0;0m"
-BOLD    = "\033[;1m"
-REVERSE = "\033[;7m"
+    RED = "\033[1;31m"  
+    BLUE = "\033[1;34m"
+    CYAN = "\033[1;36m"
+    GREEN = "\033[0;32m"
+    RESET = "\033[0;0m"
+    BOLD = "\033[;1m"
+    REVERSE = "\033[;7m"
 
 
 HANGMAN = (
@@ -19,7 +19,7 @@ HANGMAN = (
 
 
 
-        
+
  |
  |
 ----------
@@ -149,7 +149,7 @@ def start_game():
 
     \n \n""")
 
-    print('WELCOME TO HANGMAN!!\n')
+    print(f'WELCOME TO {colors.BLUE}HANGMAN!!{colors.RESET}\n')
 
     print('What is your name?\n \n')
 
@@ -168,12 +168,12 @@ def start_game():
             |
            | |
            | |
-        """)
-        print("""
-        Would you like to:
-        1. Start Game
-        2. Read The Rules
-        3. View Leaderboard? \n \n""")
+        \n \n""")
+        print(f"""
+        Would you like to:\n
+        {colors.BLUE}1. Start Game \n
+        {colors.RED}2. Read The Rules \n
+        {colors.GREEN}3. View Leaderboard?{colors.RESET} \n \n""")
         print('Please enter the number which corresponds to your selection! \n')
         main_menu_choice = input('Number:')
         choice_made = False
@@ -182,7 +182,7 @@ def start_game():
                     return main_menu_choice
                     choice_made = True
                 else:
-                    print('Invalid option, please enter the numer which corresponds to one of the available options')
+                    print(f'{colors.RED}WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection\n')
                     main_menu_choice = input('Number:')
 
 
@@ -205,7 +205,7 @@ def set_difficulty():
             num_lives = 5
             choice_made = True
         else:
-            print('Invalid option, please enter the numer which corresponds to one of the available options')
+            print(f'{colors.RED}WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection\n')
             difficulty = input('Number:')
     return num_lives
 
