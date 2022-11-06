@@ -146,20 +146,23 @@ HANGMAN = (
 
 
 def display_leaderboard():
-    leaderboard = SHEET.worksheet("leaderboard")
-
+    leaderboard = SHEET.worksheet("leaderboard_sorted")
     columns = []
     headers = []
+    rows = []
     results = []
     for ind in range(1, 4):
         column = leaderboard.col_values(ind)
         columns.append(column[-100:])
     for column in columns:
         headers.append(column[0])
-    for column in columns:
-        column.pop(0)
-    print(headers)
-    print(columns)
+        i=1
+    print(f"""\n-----------------------------------
+{headers[0]}| {headers[1]}| {headers[2]}|""")
+    scores = leaderboard.get_all_values()
+    scores.pop(0)
+    for score in scores:
+        print(f"{score[0]} {score[1]} {score[2]}")
     print('What would you like to do?')
     input('Please choose an option:\n')
 
