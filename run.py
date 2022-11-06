@@ -19,7 +19,7 @@ guesses = []
 
 
 class colors:
-    RED = "\033[1;31m"  
+    RED = "\033[1;31m"
     BLUE = "\033[1;34m"
     CYAN = "\033[1;36m"
     GREEN = "\033[0;32m"
@@ -38,7 +38,7 @@ HANGMAN = (
  |
 ----------
 """,
-    """
+        """
  |
  |
  |
@@ -48,7 +48,7 @@ HANGMAN = (
  |
 ----------
 """,
-    """
+        """
  ------
  |    |
  |
@@ -60,7 +60,7 @@ HANGMAN = (
  |
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -72,7 +72,7 @@ HANGMAN = (
  |
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -84,7 +84,7 @@ HANGMAN = (
  |   
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -96,7 +96,7 @@ HANGMAN = (
  |   
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -108,7 +108,7 @@ HANGMAN = (
  |   
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -120,7 +120,7 @@ HANGMAN = (
  |   
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -132,7 +132,7 @@ HANGMAN = (
  |   
 ----------
 """,
-"""
+        """
  ------
  |    |
  |    O
@@ -151,7 +151,7 @@ def display_leaderboard():
     scores = leaderboard.get_all_values()
     headers = scores.pop(0)
     i = 1
-    for i in range(0,3):
+    for i in range(0, 3):
         headers[i] = "{:<15}".format(headers[i])
     print(f"""\n-----------------------------------
 {colors.BOLD}{headers[0]} {headers[1]} {headers[2]}{colors.RESET}\n""")
@@ -160,12 +160,12 @@ def display_leaderboard():
             score[i] = "{:<15}".format(score[i])
        
         print(f"{score[0]} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
-    print(f"""\n-----------------------------------""")
+    print("\n-----------------------------------")
     print("""What would you like to do?
     1. Play Game
     2. Read rules""")
     choice_made = False
-    while choice_made != True:
+    while choice_made is not True:
         choice = input('Number:')
 
         try:
@@ -176,9 +176,12 @@ def display_leaderboard():
             elif choice == "2":
                 choice_made = True
             else:
-                raise ValueError(f'\nWHOOPS! That is not a valid option! \nPlease enter a valid option, using the number which corresponds to your selection \n')
+                raise ValueError("""\nWHOOPS! That is not a valid option!\n
+                 Please enter a valid option, using the number which 
+                 corresponds to your selection \n""")
         except ValueError as e:
             print(f'{colors.RED}{e}{colors.RESET}') 
+
 
 def start_game():
     global guesses
@@ -207,13 +210,14 @@ def start_game():
     global name 
     name = ""
     name_given = False
-    while name_given == False:
+    while name_given is False:
         name = input('ENTER YOUR NAME:\n')
         try:
-            if name == "":   
+            if name == "":
                 raise ValueError('Please enter a name')
             if len(name) > 10:
-                raise ValueError('please enter a name of 10 or less characters')
+                raise ValueError('please enter a name of 10 or less'
+                                 + ' characters')
             if not name.isalnum():
                 raise ValueError('Please enter a name')
             else:
@@ -232,19 +236,20 @@ def start_game():
                 {colors.BLUE}1. Start Game \n
                 {colors.RED}2. Read The Rules \n
                 {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
-                print('Please enter the number which corresponds to your selection! \n')
+                print('Please enter the number which corresponds to your'
+                      + 'selection! \n')
                 main_menu_choice = input('Number:\n')
                 choice_made = False
-                while choice_made != True:
-                        if main_menu_choice == "1":
-                            return main_menu_choice
-                            choice_made = True
-                        elif main_menu_choice == "3":
-                            return main_menu_choice
-                            choice_made = True
-                        else:
-                            print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                            main_menu_choice = input('Number:\n')
+                while choice_made is not True:
+                    if main_menu_choice == "1":
+                        return main_menu_choice
+                        choice_made = True
+                    elif main_menu_choice == "3":
+                        return main_menu_choice
+                        choice_made = True
+                    else:
+                        print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                        main_menu_choice = input('Number:\n')
         except ValueError as e:
             print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
 
