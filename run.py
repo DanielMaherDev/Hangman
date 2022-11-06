@@ -150,12 +150,16 @@ def display_leaderboard():
 
     columns = []
     headers = []
+    results = []
     for ind in range(1, 4):
         column = leaderboard.col_values(ind)
-        columns.append(column[-5:])
+        columns.append(column[-100:])
     for column in columns:
         headers.append(column[0])
+    for column in columns:
+        column.pop(0)
     print(headers)
+    print(columns)
     print('What would you like to do?')
     input('Please choose an option:\n')
 
