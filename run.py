@@ -155,7 +155,7 @@ def display_leaderboard():
     for column in columns:
         print(column)
     print('What would you like to do?')
-    input('Please choose an option:')
+    input('Please choose an option:\n')
 
 
 def start_game():
@@ -180,10 +180,10 @@ def start_game():
     print('What is your name?\n \n')
 
     name = ""
-    name = input('ENTER YOUR NAME:')
+    name = input('ENTER YOUR NAME:\n')
     while name == "":
         print('Please enter a name')
-        name = input('ENTER YOUR NAME:')
+        name = input('ENTER YOUR NAME:\n')
 
     if name != "":
         print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
@@ -201,7 +201,7 @@ def start_game():
         {colors.RED}2. Read The Rules \n
         {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
         print('Please enter the number which corresponds to your selection! \n')
-        main_menu_choice = input('Number:')
+        main_menu_choice = input('Number:\n')
         choice_made = False
         while choice_made != True:
                 if main_menu_choice == "1":
@@ -212,7 +212,7 @@ def start_game():
                     choice_made = True
                 else:
                     print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                    main_menu_choice = input('Number:')
+                    main_menu_choice = input('Number:\n')
 
 
 def set_difficulty():
@@ -221,7 +221,7 @@ def set_difficulty():
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
     print('Please choose the number corresponding to your preferred level of difficulty \n')
-    difficulty = input('Difficulty:')
+    difficulty = input('Difficulty:\n')
     choice_made = False
     while choice_made != True:
         if difficulty == "1":
@@ -235,7 +235,7 @@ def set_difficulty():
             choice_made = True
         else:
             print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-            difficulty = input('Number:')
+            difficulty = input('Number:\n')
     return num_lives
 
 def get_word():
@@ -260,7 +260,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
             if guess_number > 0:
                 guess_list = " ".join(guesses)
                 print(f'\nGuesses: {colors.BOLD}{guess_list}{colors.RESET} \n')
-            this_guess = input('Please choose a letter to guess:').lower()
+            this_guess = input('Please choose a letter to guess:\n').lower()
             try:
                 if len(this_guess) > 1:
                     raise ValueError(
