@@ -266,7 +266,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print(f"\nYOU WIN! \n \n The word was {word}.\n \nYou finished with {num_lives} guesses remaining!")
+                        print(f"\n{colors.GREEN}YOU WIN!{colors.RESET} \n \nThe word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {num_lives} guesses remaining!")
                             
                             
             except ValueError as e:
