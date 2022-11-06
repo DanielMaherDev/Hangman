@@ -185,6 +185,7 @@ def start_game():
 
     print('What is your name?\n \n')
 
+    global name 
     name = ""
     name = input('ENTER YOUR NAME:\n')
     while name == "":
@@ -249,7 +250,7 @@ def get_word():
     return word
 
 
-def make_guess(guess_number, num_lives, word, hangman_start_number):
+def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
     print(f'\nLets do this!\n \nYour word contains {colors.GREEN}{len(word)}{colors.RESET} characters')
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
@@ -305,7 +306,13 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
                     if word_blank == word:
                         game_over = True
                         print(f"\n{colors.GREEN}YOU WIN!{colors.RESET} \n \nThe word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {num_lives} guesses remaining!")
-                            
+                        new_score = [name, difficulty, num_lives]
+                        print(new_score)
+                        worksheet_to_update = SHEET.worksheet('leaderboard')
+                        worksheet_to_update.append_row(new_score)
+                       # print(f"worksheet updated successfully\n")        
+
+                    
                             
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
@@ -324,13 +331,16 @@ def main():
     if main_menu_choice == "1":
         num_lives = set_difficulty()
         if num_lives == 5:
+            difficulty = 'Hard'
             hangman_start_number = 4
         elif num_lives == 7:
+            difficulty = 'Medium'
             hangman_start_number = 2
         elif num_lives == 9:
+            difficulty = 'Easy'
             hangman_start_number = 0
         word = get_word()
-        make_guess(guess_number, num_lives, word, hangman_start_number)
+        make_guess(guess_number, num_lives, word, hangman_start_number, difficulty)
     elif main_menu_choice == "2":
         print('RULES')
     elif main_menu_choice == "3":
