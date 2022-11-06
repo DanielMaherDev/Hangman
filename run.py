@@ -161,8 +161,22 @@ def display_leaderboard():
        
         print(f"{score[0]} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
     print(f"""\n-----------------------------------""")
-    print('\nWhat would you like to do?')
-    input('Please choose an option:\n')
+    print("""What would you like to do?
+    1. Play Game
+    2. Read rules""")
+    choice_made = False
+    choice = input('Number')
+    while choice_made != True:
+        if choice == "1":
+            choice_made = True
+            num_lives = set_difficulty()
+            make_guess(num_lives)
+        elif choice == "2":
+            return main_menu_choice
+            choice_made = True
+        else:
+            print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+            main_menu_choice = input('Number:\n')
 
 
 def start_game():
@@ -201,7 +215,6 @@ def start_game():
                 raise ValueError('please enter a name of 10 or less characters')
             if not name.isalnum():
                 raise ValueError('Please enter a name')
-
             else:
                 name_given = True
                 print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
@@ -264,7 +277,20 @@ def get_word():
     return word
 
 
-def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
+def make_guess(num_lives):
+    guesses = []
+    if num_lives == 5:
+        difficulty = 'Hard'
+        hangman_start_number = 4
+    elif num_lives == 7:
+        difficulty = 'Medium'
+        hangman_start_number = 2
+    elif num_lives == 9:
+        difficulty = 'Easy'
+        hangman_start_number = 0
+    guess_number = 0
+    word = get_word()
+
     print(f'\nLets do this!\n \nYour word contains {colors.GREEN}{len(word)}{colors.RESET} characters')
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
@@ -336,10 +362,9 @@ def make_guess(guess_number, num_lives, word, hangman_start_number, difficulty):
                                 choice_made = True
                                 display_leaderboard()
                             elif choice == "2":
-                                num_lives = 7
-                                main()
+                                num_lives = set_difficulty()
+                                make_guess(num_lives)
                             elif choice == "3":
-                                num_lives = 5
                                 choice_made = True
                             else:
                                 print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
@@ -358,7 +383,6 @@ def main():
     Run game functions
     """
     main_menu_choice = start_game()
-    guess_number = 0
     if main_menu_choice == "1":
         num_lives = set_difficulty()
         if num_lives == 5:
@@ -370,8 +394,7 @@ def main():
         elif num_lives == 9:
             difficulty = 'Easy'
             hangman_start_number = 0
-        word = get_word()
-        make_guess(guess_number, num_lives, word, hangman_start_number, difficulty)
+        make_guess(num_lives)
     elif main_menu_choice == "2":
         print('RULES')
     elif main_menu_choice == "3":
