@@ -5,17 +5,21 @@ guesses = []
 
 
 class colors:
-    RED   = "\033[1;31m"  
-    BLUE  = "\033[1;34m"
-    CYAN  = "\033[1;36m"
-    GREEN = "\033[0;32m"
-    RESET = "\033[0;0m"
-    BOLD    = "\033[;1m"
-    REVERSE = "\033[;7m"
+RED   = "\033[1;31m"  
+BLUE  = "\033[1;34m"
+CYAN  = "\033[1;36m"
+GREEN = "\033[0;32m"
+RESET = "\033[0;0m"
+BOLD    = "\033[;1m"
+REVERSE = "\033[;7m"
 
 
 HANGMAN = (
         """
+
+
+
+        
  |
  |
 ----------
@@ -143,10 +147,12 @@ def start_game():
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
 
 
-    """)
+    \n \n""")
 
-    print('Welcome to HangMan!\n')
+    print('WELCOME TO HANGMAN!!\n')
+
     print('What is your name?\n \n')
+
     name = ""
     name = input('ENTER YOUR NAME:')
     while name == "":
@@ -155,6 +161,14 @@ def start_game():
 
     if name != "":
         print(f"\n Welcome, {name}")
+        print("""
+            O
+          /-+-/
+            |
+            |
+           | |
+           | |
+        """)
         print("""
         Would you like to:
         1. Start Game
