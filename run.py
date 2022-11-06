@@ -187,7 +187,7 @@ def start_game():
 
 
 def set_difficulty():
-    print(f"""Awesome, lets play! \n \n You have 3 Levels of Difficulty:\n
+    print(f"""\nAwesome, lets play! \n \n You have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
@@ -250,13 +250,12 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
                 elif this_guess not in word:
                     print(f"{this_guess} is not in the word. You lose a life!")
                     guesses.append(this_guess)
-                    print(guess_number)
                     num_lives -= 1
                     guess_number += 1
                     hangman_start_number += 1
                     guess_made = True
                 else:
-                    print(f'Great Guess! {this_guess} is in the word!')
+                    print(f'\n{colors.GREEN}Great Guess!{colors.BOLD} {this_guess}{colors.RESET}{colors.GREEN} is in the word!{colors.RESET}')
                     guesses.append(this_guess)
                     guess_made = True
                     x = 0
@@ -267,7 +266,7 @@ def make_guess(guess_number, num_lives, word, hangman_start_number):
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print(f"YOU WIN! The word was {word}. \nYou finished with {num_lives} guesses remaining!")
+                        print(f"\nYOU WIN! \n \n The word was {word}.\n \nYou finished with {num_lives} guesses remaining!")
                             
                             
             except ValueError as e:
