@@ -170,7 +170,7 @@ def read_rules():
      """)
     choice_made = False
     while choice_made is not True:
-        choice = input('Number:')
+        choice = input('Number:\n')
 
         try:
             if choice == "1":
@@ -208,7 +208,7 @@ def display_leaderboard():
     {colors.RED}2. Read rules""")
     choice_made = False
     while choice_made is not True:
-        choice = input('Number:')
+        choice = input('Number:\n')
 
         try:
             if choice == "1":
@@ -428,7 +428,7 @@ def make_guess(num_lives):
         2. Play Again
         3. Read Rules""")
         print('Please choose the number that corresponds to your selection')  
-        choice = input('Number:')
+        choice = input('Number:\n')
         choice_made = False
         while choice_made != True:
             if choice == "1":
