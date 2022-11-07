@@ -336,7 +336,9 @@ Please enter a valid option, using the number which corresponds to your selectio
     return num_lives
 
 def get_word():
-    word = list_of_words[random.randint(0, len(list_of_words)-1)]
+    nm = random.randint(0, len(list_of_words)-1)
+    print(nm)
+    word = list_of_words[nm]
     return word
 
 
@@ -467,7 +469,6 @@ Please enter a valid option, using the number which corresponds to your selectio
             except ValueError as e:
                 print(f"{colors.RED}{e}{colors.RESET}")
 def main():
-
     """
     Run game functions
     """
