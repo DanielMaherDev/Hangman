@@ -311,7 +311,7 @@ def set_difficulty():
 \_| |_/ \/  \/ \____/ \____/  \___/ \_|  |_/\____/ 
                                                    
                                                    
-        Lets play! \n \nYou have 3 Levels of Difficulty:\n
+Lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
