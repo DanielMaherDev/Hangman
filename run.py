@@ -303,13 +303,14 @@ Would you like to:\n
 
 
 def set_difficulty():
-    print(f"""\
-            _____  __      _____________ _________________      _____  ___________
-           /  _  \/  \    /  \_   _____//   _____/\_____  \    /     \ \_   _____/
-          /  /_\  \   \/\/   /|    __)_ \_____  \  /   |   \  /  \ /  \ |    __)_ 
-         /    |    \        / |        \/        \/    |    \/    Y    \|        \
-         \____|__  /\__/\  / /_______  /_______  /\_______  /\____|__  /_______  /
-                 \/      \/          \/        \/         \/         \/        \/ 
+    print(f"""  ___   _    _  _____  _____  _____ ___  ___ _____ 
+ / _ \ | |  | ||  ___|/  ___||  _  ||  \/  ||  ___|
+/ /_\ \| |  | || |__  \ `--. | | | || .  . || |__  
+|  _  || |/\| ||  __|  `--. \| | | || |\/| ||  __| 
+| | | |\  /\  /| |___ /\__/ /\ \_/ /| |  | || |___ 
+\_| |_/ \/  \/ \____/ \____/  \___/ \_|  |_/\____/ 
+                                                   
+                                                   
         Lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
@@ -330,7 +331,9 @@ def set_difficulty():
                 num_lives = 5
                 choice_made = True
             else:
-                raise ValueError(f'\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection \n')
+                raise ValueError("""\nWHOOPS! That is not a valid option!
+                
+                                      Please enter a valid option, using the number which corresponds to your selection \n""")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
