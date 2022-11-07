@@ -147,27 +147,29 @@ HANGMAN = (
 
 
 def read_rules():
-    print("""RULES
+    print(f"""\n    {colors.BOLD}RULES
     
-    1. Choose your difficulty
+    {colors.RED}1. Choose your difficulty{colors.RESET}
             - Easy = 9 lives
             - Medium = 7 lives
             - Hard = 5 lives
 
-    2. Take a guess at one of the letters in the word!
+   {colors.RED}2. Take a guess at one of the letters in the word!{colors.RESET}
             - If the letter is not in the word, you lose a life
             - If the letter is in the word, it will show up, wherever in the
               word it is present!
 
-    3. You win by guessing the full word and saving HangMan
+    {colors.RED}3. You WIN by guessing the full word and saving HangMan{colors.RESET}
 
-    4. You lose if you run out of lives and HangMan is hung
+    {colors.RED}4. You LOSE if you run out of lives and HangMan is hung{colors.RESET}
 
-    GOOD LUCK
+            GOOD LUCK
 
     What would you like to do?
-    1. Play Game
-    2. View the leaderboard
+
+    {colors.GREEN}1. Play Game
+
+    {colors.CYAN}2. View the leaderboard{colors.RESET}
 
      """)
     input('Number:')
@@ -405,10 +407,10 @@ def make_guess(num_lives):
                                 choice_made = True
                             else:
                                 print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                                choice = input('Number:\n')
-                            
+                                choice = input('Number:\n')                     
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
+                
         if num_lives == 0:
             print(HANGMAN[hangman_start_number] + '\n')
             print(f'Unlucky. You ran out of lives! The correct word was {word}')
