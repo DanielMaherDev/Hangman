@@ -155,20 +155,18 @@ def read_rules():
             - Hard = 5 lives
 
    {colors.RED}2. Take a guess at one of the letters in the word!{colors.RESET}
-            - If the letter is not in the word, you lose a life
-            - If the letter is in the word, it will show up, wherever in the
+            - If the letter is not in the word, you lose a life, if the letter is in the word, it will show up, wherever in the
               word it is present!
 
     {colors.RED}3. You WIN by guessing the full word and saving HangMan{colors.RESET}
 
     {colors.RED}4. You LOSE if you run out of lives and HangMan is hung{colors.RESET}
 
-            GOOD LUCK
+            GOOD LUCK!
 
     What would you like to do?
 
     {colors.GREEN}1. Play Game
-
     {colors.CYAN}2. View the leaderboard{colors.RESET}
 
      """)
@@ -387,7 +385,7 @@ def make_guess(num_lives):
                     f" Only letters are valid guesses, but you guessed {this_guess}"
                     )
                 elif this_guess not in word:
-                    print(f"{this_guess} is not in the word. You lose a life!")
+                    print(f"{colors.RED}{this_guess} is not in the word. You lose a life!{colors.RESET}")
                     guesses.append(this_guess)
                     num_lives -= 1
                     guess_number += 1
