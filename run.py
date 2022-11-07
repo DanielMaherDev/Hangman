@@ -268,24 +268,25 @@ def start_game():
                 {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
                 print('Please enter the number which corresponds to your'
                       + 'selection! \n')
-                main_menu_choice = input('Number:\n')
                 choice_made = False
-                while choice_made is not True:
-                    if main_menu_choice == "1":
-                        return main_menu_choice
-                        choice_made = True
-                    if main_menu_choice == "2":
-                        return main_menu_choice
-                        choice_made = True
-                    elif main_menu_choice == "3":
-                        return main_menu_choice
-                        choice_made = True
-                    else:
-                        print(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                        main_menu_choice = input('Number:\n')
+                while choice_made is False:
+                    main_menu_choice = input('Number:\n')
+                    try:
+                        if main_menu_choice == "1":
+                            return main_menu_choice
+                            choice_made = True
+                        elif main_menu_choice == "2":
+                            return main_menu_choice
+                            choice_made = True
+                        elif main_menu_choice == "3":
+                            return main_menu_choice
+                            choice_made = True
+                        else:
+                            raise ValueError(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                    except ValueError as e:
+                        print(f"{e}")
         except ValueError as e:
             print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
-
 
 
 def set_difficulty():
@@ -294,21 +295,23 @@ def set_difficulty():
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
     print('Please choose the number corresponding to your preferred level of difficulty \n')
-    difficulty = input('Difficulty:\n')
     choice_made = False
-    while choice_made != True:
-        if difficulty == "1":
-            choice_made = True
-            num_lives = 9
-        elif difficulty == "2":
-            num_lives = 7
-            choice_made = True
-        elif difficulty == "3":
-            num_lives = 5
-            choice_made = True
-        else:
-            print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-            difficulty = input('Number:\n')
+    while choice_made is not True:
+        difficulty = input('Difficulty:\n')
+        try:
+            if difficulty == "1":
+                choice_made = True
+                num_lives = 9
+            elif difficulty == "2":
+                num_lives = 7
+                choice_made = True
+            elif difficulty == "3":
+                num_lives = 5
+                choice_made = True
+            else:
+                raise ValueError(f'\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection \n')
+        except ValueError as e:
+            print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
 
 def get_word():
