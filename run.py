@@ -181,11 +181,10 @@ def read_rules():
                 choice_made = True
                 display_leaderboard()
             else:
-                raise ValueError("""\nWHOOPS! That is not a valid option!\n
-                 Please enter a valid option, using the number which 
-                 corresponds to your selection \n""")
+                raise ValueError("""WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number which corresponds to your selection\n""")
         except ValueError as e:
-            print(f'{colors.RED}{e}{colors.RESET}') 
+            print(f"{colors.RED}{e}{colors.RESET}")
 
 
 def display_leaderboard():
@@ -219,12 +218,10 @@ def display_leaderboard():
                 choice_made = True
                 read_rules()
             else:
-                raise ValueError("""\nWHOOPS! That is not a valid option!\n
-                 Please enter a valid option, using the number which 
-                 corresponds to your selection \n""")
+                raise ValueError("""WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number which corresponds to your selection\n""")
         except ValueError as e:
-            print(f'{colors.RED}{e}{colors.RESET}') 
-
+            print(f"{colors.RED}{e}{colors.RESET}")
 
 def start_game():
     global guesses
@@ -295,11 +292,10 @@ Would you like to:\n
                             return main_menu_choice
                             choice_made = True
                         else:
-                            raise ValueError(f"""{colors.RED}nWHOOPS! That is not a valid option!\n
-                 Please enter a valid option, using the number which 
-                 corresponds to your selection {colors.RESET}\n""")
+                            raise ValueError("""WHOOPS! That is not a valid option!\n
+            Please enter a valid option, using the number which corresponds to your selection\n""")
                     except ValueError as e:
-                        print(f"{e}")
+                        print(f"{colors.RED}{e}{colors.RESET}")
         except ValueError as e:
             print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
 
@@ -333,9 +329,8 @@ Lets play! \n \nYou have 3 Levels of Difficulty:\n
                 num_lives = 5
                 choice_made = True
             else:
-                raise ValueError(f"""{colors.RED}nWHOOPS! That is not a valid option!\n
-                Please enter a valid option, using the number which 
-                corresponds to your selection {colors.RESET}\n""")
+                raise ValueError("""WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number which corresponds to your selection\n""")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
@@ -465,9 +460,8 @@ def make_guess(num_lives):
                     choice_made = True
                     read_rules()
                 else:
-                    raise ValueError(f"""nWHOOPS! That is not a valid option!\n
-                Please enter a valid option, using the number which 
-                corresponds to your selection\n""")
+                    raise ValueError("""WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number which corresponds to your selection\n""")
             except ValueError as e:
                 print(f"{colors.RED}{e}{colors.RESET}")
 def main():
