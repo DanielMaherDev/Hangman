@@ -172,7 +172,26 @@ def read_rules():
     {colors.CYAN}2. View the leaderboard{colors.RESET}
 
      """)
-    input('Number:')
+    choice_made = False
+    while choice_made is not True:
+        choice = input('Number:')
+
+        try:
+            if choice == "1":
+                choice_made = True
+                num_lives = set_difficulty()
+                make_guess(num_lives)
+            elif choice == "2":
+                choice_made = True
+                display_leaderboard()
+            else:
+                raise ValueError("""\nWHOOPS! That is not a valid option!\n
+                 Please enter a valid option, using the number which 
+                 corresponds to your selection \n""")
+        except ValueError as e:
+            print(f'{colors.RED}{e}{colors.RESET}') 
+
+    
     
 
 def display_leaderboard():
@@ -402,7 +421,7 @@ def make_guess(num_lives):
         print("""Would you like to:
         1. View the leaderboard
         2. Play Again
-        3. End Game""")
+        3. Read Rules""")
         print('Please choose the number that corresponds to your selection')  
         choice = input('Number:')
         choice_made = False
@@ -415,6 +434,7 @@ def make_guess(num_lives):
                 make_guess(num_lives)
             elif choice == "3":
                 choice_made = True
+                read_rules()
             else:
                 print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
                 choice = input('Number:\n')                     
