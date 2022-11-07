@@ -168,7 +168,6 @@ def read_rules():
 
     {colors.GREEN}1. Play Game
     {colors.CYAN}2. View the leaderboard{colors.RESET}
-
      """)
     choice_made = False
     while choice_made is not True:
