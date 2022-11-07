@@ -146,6 +146,33 @@ HANGMAN = (
 """)
 
 
+def read_rules():
+    print("""RULES
+    
+    1. Choose your difficulty
+            - Easy = 9 lives
+            - Medium = 7 lives
+            - Hard = 5 lives
+
+    2. Take a guess at one of the letters in the word!
+            - If the letter is not in the word, you lose a life
+            - If the letter is in the word, it will show up, wherever in the
+              word it is present!
+
+    3. You win by guessing the full word and saving HangMan
+
+    4. You lose if you run out of lives and HangMan is hung
+
+    GOOD LUCK
+
+    What would you like to do?
+    1. Play Game
+    2. View the leaderboard
+
+     """)
+    input('Number:')
+    
+
 def display_leaderboard():
     leaderboard = SHEET.worksheet("leaderboard_sorted")
     scores = leaderboard.get_all_values()
@@ -175,6 +202,7 @@ def display_leaderboard():
                 make_guess(num_lives)
             elif choice == "2":
                 choice_made = True
+                read_rules()
             else:
                 raise ValueError("""\nWHOOPS! That is not a valid option!\n
                  Please enter a valid option, using the number which 
@@ -234,7 +262,7 @@ def start_game():
                 print(f"""
                 Would you like to:\n
                 {colors.BLUE}1. Start Game \n
-                {colors.RED}2. Read The Rules \n
+                {colors.RED}2. Read Rules \n
                 {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
                 print('Please enter the number which corresponds to your'
                       + 'selection! \n')
@@ -242,6 +270,9 @@ def start_game():
                 choice_made = False
                 while choice_made is not True:
                     if main_menu_choice == "1":
+                        return main_menu_choice
+                        choice_made = True
+                    if main_menu_choice == "2":
                         return main_menu_choice
                         choice_made = True
                     elif main_menu_choice == "3":
@@ -402,7 +433,7 @@ def main():
             hangman_start_number = 0
         make_guess(num_lives)
     elif main_menu_choice == "2":
-        print('RULES')
+        read_rules()    
     elif main_menu_choice == "3":
         display_leaderboard()
     else:
