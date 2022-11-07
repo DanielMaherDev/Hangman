@@ -205,7 +205,7 @@ def display_leaderboard():
     print("\n-----------------------------------")
     print(f"""What would you like to do?\n
     {colors.BLUE}1. Play Game\n
-    {colors.RED}2. Read rules""")
+    {colors.RED}2. Read rules\n""")
     choice_made = False
     while choice_made is not True:
         choice = input('Number:\n')
@@ -295,7 +295,9 @@ Would you like to:\n
                             return main_menu_choice
                             choice_made = True
                         else:
-                            raise ValueError(f'{colors.RED} \n WHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                            raise ValueError(f"""{colors.RED}nWHOOPS! That is not a valid option!\n
+                 Please enter a valid option, using the number which 
+                 corresponds to your selection {colors.RESET}\n""")
                     except ValueError as e:
                         print(f"{e}")
         except ValueError as e:
@@ -331,9 +333,9 @@ Lets play! \n \nYou have 3 Levels of Difficulty:\n
                 num_lives = 5
                 choice_made = True
             else:
-                raise ValueError("""\nWHOOPS! That is not a valid option!
-                
-                                      Please enter a valid option, using the number which corresponds to your selection \n""")
+                raise ValueError(f"""{colors.RED}nWHOOPS! That is not a valid option!\n
+                Please enter a valid option, using the number which 
+                corresponds to your selection {colors.RESET}\n""")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
@@ -411,7 +413,28 @@ def make_guess(num_lives):
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print(f"\n{colors.GREEN}YOU WIN!{colors.RESET} \n \nThe word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {num_lives} guesses remaining!")
+                        print(f"""\n{colors.GREEN} /$$     /$$  /$$$$$$  /$$   /$$
+|  $$   /$$/ /$$__  $$| $$  | $$
+ \  $$ /$$/ | $$  \ $$| $$  | $$
+  \  $$$$/  | $$  | $$| $$  | $$
+   \  $$/   | $$  | $$| $$  | $$
+    | $$    | $$  | $$| $$  | $$
+    | $$    |  $$$$$$/|  $$$$$$/
+    |__/     \______/  \______/ 
+                                
+                                
+                                
+ /$$      /$$ /$$$$$$ /$$   /$$ 
+| $$  /$ | $$|_  $$_/| $$$ | $$ 
+| $$ /$$$| $$  | $$  | $$$$| $$ 
+| $$/$$ $$ $$  | $$  | $$ $$ $$ 
+| $$$$_  $$$$  | $$  | $$  $$$$ 
+| $$$/ \  $$$  | $$  | $$\  $$$ 
+| $$/   \  $$ /$$$$$$| $$ \  $$ 
+|__/     \__/|______/|__/  \__/ 
+                                
+                                
+                                {colors.RESET} \n \nThe word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {colors.GREEN}{num_lives}{colors.RESET} guesses remaining!""")
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
@@ -423,27 +446,30 @@ def make_guess(num_lives):
             except ValueError as e:
                         print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
     if game_over == True:       
-        print("""Would you like to:
-        1. View the leaderboard
-        2. Play Again
-        3. Read Rules""")
+        print(f"""Would you like to:
+        {colors.RED}1. View the leaderboard
+        {colors.GREEN}2. Play Again
+        {colors.BLUE}3. Read Rules{colors.RESET}""")
         print('Please choose the number that corresponds to your selection')  
-        choice = input('Number:\n')
         choice_made = False
         while choice_made != True:
-            if choice == "1":
-                choice_made = True
-                display_leaderboard()
-            elif choice == "2":
-                num_lives = set_difficulty()
-                make_guess(num_lives)
-            elif choice == "3":
-                choice_made = True
-                read_rules()
-            else:
-                print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                choice = input('Number:\n')                     
-
+            choice = input('Number:\n')
+            try:
+                if choice == "1":
+                    choice_made = True
+                    display_leaderboard()
+                elif choice == "2":
+                    num_lives = set_difficulty()
+                    make_guess(num_lives)
+                elif choice == "3":
+                    choice_made = True
+                    read_rules()
+                else:
+                    raise ValueError(f"""nWHOOPS! That is not a valid option!\n
+                Please enter a valid option, using the number which 
+                corresponds to your selection\n""")
+            except ValueError as e:
+                print(f"{colors.RED}{e}{colors.RESET}")
 def main():
 
     """
