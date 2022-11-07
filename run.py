@@ -195,9 +195,9 @@ def display_leaderboard():
     i = 1
     for i in range(0, 3):
         headers[i] = "{:<15}".format(headers[i])
-    print(f"""\n-----------------------------------
+    print(f"""\nLEADERBOARD - TOP 10\n\n-----------------------------------
 {colors.BOLD}{headers[0]} {headers[1]} {headers[2]}{colors.RESET}\n""")
-    for score in scores:
+    for score in scores[0:10]:
         for i in range(0, 3):
             score[i] = "{:<15}".format(score[i])
        
