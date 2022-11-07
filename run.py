@@ -391,33 +391,33 @@ def make_guess(num_lives):
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
-                        print('\nYour Score has been added to the leaderboard')
-                        print("""Would you like to:
-                        1. View the leaderboard
-                        2. Play Again
-                        3. End Game""")
-                        print('Please choose the number that corresponds to your selection')  
-                        choice = input('Number:')
-                        choice_made = False
-                        while choice_made != True:
-                            if choice == "1":
-                                choice_made = True
-                                display_leaderboard()
-                            elif choice == "2":
-                                num_lives = set_difficulty()
-                                make_guess(num_lives)
-                            elif choice == "3":
-                                choice_made = True
-                            else:
-                                print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
-                                choice = input('Number:\n')                     
+                        print('\nYour Score has been added to the leaderboard')       
+                if num_lives == 0:
+                    game_over = True
+                    print(HANGMAN[hangman_start_number] + '\n')
+                    print(f'Unlucky. You ran out of lives! The correct word was {word}')
             except ValueError as e:
-                print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
-                
-        if num_lives == 0:
-            print(HANGMAN[hangman_start_number] + '\n')
-            print(f'Unlucky. You ran out of lives! The correct word was {word}')
-
+                        print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
+    if game_over == True:       
+        print("""Would you like to:
+        1. View the leaderboard
+        2. Play Again
+        3. End Game""")
+        print('Please choose the number that corresponds to your selection')  
+        choice = input('Number:')
+        choice_made = False
+        while choice_made != True:
+            if choice == "1":
+                choice_made = True
+                display_leaderboard()
+            elif choice == "2":
+                num_lives = set_difficulty()
+                make_guess(num_lives)
+            elif choice == "3":
+                choice_made = True
+            else:
+                print(f'{colors.RED}\nWHOOPS! That is not a valid option! Please enter a valid option, using the number which corresponds to your selection {colors.RESET}\n')
+                choice = input('Number:\n')                     
 
 def main():
 
