@@ -155,14 +155,13 @@ def read_rules():
             - Hard = 5 lives
 
    {colors.RED}2. Take a guess at one of the letters in the word!{colors.RESET}
-            - If the letter is not in the word, you lose a life, if the letter is in the word, it will show up, wherever in the
+            - If the letter is not in the word, you lose a life
+              If the letter is in the word, it will show up, wherever in the
               word it is present!
 
     {colors.RED}3. You WIN by guessing the full word and saving HangMan{colors.RESET}
 
     {colors.RED}4. You LOSE if you run out of lives and HangMan is hung{colors.RESET}
-
-            GOOD LUCK!
 
     What would you like to do?
 
@@ -204,9 +203,9 @@ def display_leaderboard():
        
         print(f"{score[0]} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
     print("\n-----------------------------------")
-    print("""What would you like to do?
-    1. Play Game
-    2. Read rules""")
+    print(f"""What would you like to do?\n
+    {colors.BLUE}1. Play Game\n
+    {colors.RED}2. Read rules""")
     choice_made = False
     while choice_made is not True:
         choice = input('Number:')
@@ -304,7 +303,14 @@ Would you like to:\n
 
 
 def set_difficulty():
-    print(f"""\nAwesome, lets play! \n \nYou have 3 Levels of Difficulty:\n
+    print(f"""\
+            _____  __      _____________ _________________      _____  ___________
+           /  _  \/  \    /  \_   _____//   _____/\_____  \    /     \ \_   _____/
+          /  /_\  \   \/\/   /|    __)_ \_____  \  /   |   \  /  \ /  \ |    __)_ 
+         /    |    \        / |        \/        \/    |    \/    Y    \|        \
+         \____|__  /\__/\  / /_______  /_______  /\_______  /\____|__  /_______  /
+                 \/      \/          \/        \/         \/         \/        \/ 
+        Lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
