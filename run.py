@@ -191,8 +191,6 @@ def read_rules():
         except ValueError as e:
             print(f'{colors.RED}{e}{colors.RESET}') 
 
-    
-    
 
 def display_leaderboard():
     leaderboard = SHEET.worksheet("leaderboard_sorted")
@@ -249,18 +247,18 @@ def start_game():
 |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
 
-
-    \n \n""")
+\n""")
 
     print(f'WELCOME TO {colors.BLUE}HANGMAN!!{colors.RESET}\n')
 
-    print('What is your name?\n \n')
+    print('What is your name? \n')
 
     global name 
     name = ""
     name_given = False
     while name_given is False:
         name = input('ENTER YOUR NAME:\n')
+        name = name.upper()
         try:
             if name == "":
                 raise ValueError('Please enter a name')
@@ -271,21 +269,21 @@ def start_game():
                 raise ValueError('Please enter a name')
             else:
                 name_given = True
-                print(f"\n Welcome, {colors.GREEN}{name}{colors.RESET}")
+                print(f"\nWelcome, {colors.GREEN}{name}{colors.RESET}")
                 print("""
-                    O
-                  /-+-/
-                    |
-                    |
-                   | |
-                   | |
+  O
+ |+-/
+  |
+  |
+ | |
+ | |
                 """)
                 print(f"""
-                Would you like to:\n
-                {colors.BLUE}1. Start Game \n
-                {colors.RED}2. Read Rules \n
-                {colors.GREEN}3. View Leaderboard{colors.RESET} \n \n""")
-                print('Please enter the number which corresponds to your'
+Would you like to:\n
+{colors.BLUE}1. Start Game \n
+{colors.RED}2. Read Rules \n
+{colors.GREEN}3. View Leaderboard{colors.RESET} \n""")
+                print(f'Please enter the {colors.RED}number{colors.RESET} which corresponds to your'
                       + 'selection! \n')
                 choice_made = False
                 while choice_made is False:
@@ -309,11 +307,12 @@ def start_game():
 
 
 def set_difficulty():
-    print(f"""\nAwesome, lets play! \n \n You have 3 Levels of Difficulty:\n
+    print(f"""\nAwesome, lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
     {colors.RED}3. Hard{colors.RESET}\n""")
-    print('Please choose the number corresponding to your preferred level of difficulty \n')
+    print('Please choose the number corresponding to your preferred level of'
+          + 'difficulty \n')
     choice_made = False
     while choice_made is not True:
         difficulty = input('Difficulty:\n')
