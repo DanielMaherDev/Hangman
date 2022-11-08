@@ -201,7 +201,7 @@ def display_leaderboard():
     for score in scores[0:10]:
         for i in range(0, 3):
             score[i] = "{:<15}".format(score[i])
-       
+
         print(f"{colors.BOLD}{score[0]}{colors.RESET} {score[1]}"
               + f"{colors.GREEN}{score[2]}{colors.RESET}")
     print("\n-----------------------------------")
@@ -396,18 +396,20 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                     raise ValueError(f'"{this_guess}" has already been'
                                      + 'guessed')
                 elif not this_guess.isalpha():
-                    raise ValueError(
-                    f"Only letters are valid guesses, but you guessed {this_guess}"
-                    )
+                    raise ValueError("Only letters are valid guesses " +
+                                     f"but you guessed {this_guess}")
                 elif this_guess not in word:
-                    print(f"{colors.RED}{this_guess} is not in the word. You lose a life!{colors.RESET}")
+                    print(f"{colors.RED}{this_guess} is not in the word. "
+                          + "\nYou lose a life!{colors.RESET}")
                     guesses.append(this_guess)
                     num_lives -= 1
                     guess_number += 1
                     hangman_start_number += 1
                     guess_made = True
                 else:
-                    print(f'\n{colors.GREEN}Great Guess!{colors.BOLD} {this_guess}{colors.RESET}{colors.GREEN} is in the word!{colors.RESET}')
+                    print(f'\n{colors.GREEN}Great Guess! {colors.BOLD}'
+                          + f'{this_guess}{colors.RESET}{colors.GREEN}'
+                          + f' is in the word!{colors.RESET}')
                     guesses.append(this_guess)
                     guess_made = True
                     x = 0
@@ -418,7 +420,8 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print(f"""\n{colors.GREEN}  /$$     /$$  /$$$$$$  /$$   /$$       /$$      /$$ /$$$$$$ /$$   /$$
+                        print(f"""\n{colors.GREEN}  
+ /$$     /$$  /$$$$$$  /$$   /$$       /$$      /$$ /$$$$$$ /$$   /$$
 |  $$   /$$/ /$$__  $$| $$  | $$      | $$  /$ | $$|_  $$_/| $$$ | $$
  \  $$ /$$/ | $$  \ $$| $$  | $$      | $$ /$$$| $$  | $$  | $$$$| $$
   \  $$$$/  | $$  | $$| $$  | $$      | $$/$$ $$ $$  | $$  | $$ $$ $$
@@ -427,7 +430,10 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
     | $$    |  $$$$$$/|  $$$$$$/      | $$/   \  $$ /$$$$$$| $$ \  $$
     |__/     \______/  \______/       |__/     \__/|______/|__/  \__/
                                                                                        
-{colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {colors.GREEN}{num_lives}{colors.RESET} guesses remaining!""")
+{colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.
+
+You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" + 
+                              """remaining!""")
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
@@ -435,7 +441,8 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                 if num_lives == 0:
                     game_over = True
                     print(HANGMAN[hangman_start_number] + '\n')
-                    print(f"""{colors.RED} /$$     /$$  /$$$$$$  /$$   /$$       /$$        /$$$$$$   /$$$$$$  /$$$$$$$$
+                    print(f"""{colors.RED} 
+ /$$     /$$  /$$$$$$  /$$   /$$       /$$        /$$$$$$   /$$$$$$  /$$$$$$$$
 |  $$   /$$/ /$$__  $$| $$  | $$      | $$       /$$__  $$ /$$__  $$| $$_____/
  \  $$ /$$/ | $$  \ $$| $$  | $$      | $$      | $$  \ $$| $$  \__/| $$      
   \  $$$$/  | $$  | $$| $$  | $$      | $$      | $$  | $$|  $$$$$$ | $$$$$   
@@ -445,17 +452,17 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
     |__/     \______/  \______/       |________/ \______/  \______/ |________/
                                                                               
                                                                               
-                                                                              \n\nUnlucky! You ran out of lives! \n\nThe correct word was {word}{colors.RESET}\n""")
+Unlucky! You ran out of lives!\nThe correct word was {word}{colors.RESET}\n""")
             except ValueError as e:
-                        print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
-    if game_over == True:       
+                print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
+    if game_over is True:       
         print(f"""Would you like to:
         {colors.RED}1. View the leaderboard
         {colors.GREEN}2. Play Again
         {colors.BLUE}3. Read Rules{colors.RESET}""")
         print('Please choose the number that corresponds to your selection')  
         choice_made = False
-        while choice_made != True:
+        while choice_made is not True:
             choice = input('Number:\n')
             try:
                 if choice == "1":
@@ -469,9 +476,12 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                     read_rules()
                 else:
                     raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your selection\n""")
+Please enter a valid option, using the number which corresponds to your"""
+                                     + "selection\n")
             except ValueError as e:
                 print(f"{colors.RED}{e}{colors.RESET}")
+
+
 def main():
     """
     Run game functions
@@ -479,15 +489,6 @@ def main():
     main_menu_choice = start_game()
     if main_menu_choice == "1":
         num_lives = set_difficulty()
-        if num_lives == 5:
-            difficulty = 'Hard'
-            hangman_start_number = 4
-        elif num_lives == 7:
-            difficulty = 'Medium'
-            hangman_start_number = 2
-        elif num_lives == 9:
-            difficulty = 'Easy'
-            hangman_start_number = 0
         make_guess(num_lives)
     elif main_menu_choice == "2":
         read_rules()    
