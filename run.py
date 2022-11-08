@@ -419,7 +419,7 @@ def make_guess(num_lives):
     | $$    |  $$$$$$/|  $$$$$$/      | $$/   \  $$ /$$$$$$| $$ \  $$
     |__/     \______/  \______/       |__/     \__/|______/|__/  \__/
                                                                                        
-                                {colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {colors.GREEN}{num_lives}{colors.RESET} guesses remaining!""")
+{colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.\n \nYou finished with {colors.GREEN}{num_lives}{colors.RESET} guesses remaining!""")
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
