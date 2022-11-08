@@ -1,7 +1,7 @@
 list_of_words = ['red', 'team', 'fly', 'transparent', 'ridiculous',
                  'halloween', 'blue', 'insect', 'united', 'terminal', 'guitar',
                  'piano', 'whole', 'gather', 'stranger', 'plastic', 'thing',
-                 'bashful', 'x-ray', 'abrasive', 'tasty', 'system',
+                 'bashful', 'abrasive', 'tasty', 'system',
                  'satisfying', 'invent', 'invention', 'chalk', 'license',
                  'straw', 'great', 'homely', 'dolls', 'loud', 'moan',
                  'muddled', 'vengeful', 'itchy', 'materialistic', 'control',
