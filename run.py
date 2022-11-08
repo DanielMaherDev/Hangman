@@ -400,7 +400,7 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                                      f"but you guessed {this_guess}")
                 elif this_guess not in word:
                     print(f"{colors.RED}{this_guess} is not in the word. "
-                          + "\nYou lose a life!{colors.RESET}")
+                          + f"\nYou lose a life!{colors.RESET}")
                     guesses.append(this_guess)
                     num_lives -= 1
                     guess_number += 1
