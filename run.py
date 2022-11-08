@@ -207,7 +207,7 @@ def display_leaderboard():
     print("\n-----------------------------------")
     print(f"""What would you like to do?\n
     {colors.BLUE}1. Play Game\n
-    {colors.RED}2. Read rules\n""")
+    {colors.RED}2. Read rules\n{colors.RESET}""")
     choice_made = False
     while choice_made is not True:
         choice = input('Number:\n')
