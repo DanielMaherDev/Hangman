@@ -184,7 +184,7 @@ def read_rules():
             else:
                 raise ValueError("""WHOOPS! That is not a valid option!\n
 Please enter a valid option, using the number which corresponds to your""" +
-                                 "selection\n")
+                                 " selection\n")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
 
@@ -223,7 +223,7 @@ def display_leaderboard():
             else:
                 raise ValueError("""WHOOPS! That is not a valid option!\n
 Please enter a valid option, using the number which corresponds to your""" +
-                                 "selection\n")
+                                 " selection\n")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
 
@@ -304,7 +304,7 @@ Please enter a valid option, using the number which corresponds to """
                     except ValueError as e:
                         print(f"{colors.RED}{e}{colors.RESET}")
         except ValueError as e:
-            print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
+            print(f"{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
 
 
 def set_difficulty():
@@ -450,17 +450,17 @@ You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" +
     | $$    | $$  | $$| $$  | $$      | $$      | $$  | $$ /$$  \ $$| $$      
     | $$    |  $$$$$$/|  $$$$$$/      | $$$$$$$$|  $$$$$$/|  $$$$$$/| $$$$$$$$
     |__/     \______/  \______/       |________/ \______/  \______/ |________/
-                                                                              
-                                                                              
+
+
 Unlucky! You ran out of lives!\nThe correct word was {word}{colors.RESET}\n""")
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
-    if game_over is True:       
+    if game_over is True:
         print(f"""Would you like to:
         {colors.RED}1. View the leaderboard
         {colors.GREEN}2. Play Again
         {colors.BLUE}3. Read Rules{colors.RESET}""")
-        print('Please choose the number that corresponds to your selection')  
+        print('Please choose the number that corresponds to your selection')
         choice_made = False
         while choice_made is not True:
             choice = input('Number:\n')
