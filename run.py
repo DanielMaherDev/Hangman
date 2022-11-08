@@ -200,7 +200,7 @@ def display_leaderboard():
         for i in range(0, 3):
             score[i] = "{:<15}".format(score[i])
        
-        print(f"{score[0]} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
+        print(f"{colors.BOLD}{score[0]}{colors.RESET} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
     print("\n-----------------------------------")
     print(f"""What would you like to do?\n
     {colors.BLUE}1. Play Game\n
@@ -389,7 +389,7 @@ def make_guess(num_lives):
                     )
                 elif not this_guess.isalpha():
                     raise ValueError(
-                    f" Only letters are valid guesses, but you guessed {this_guess}"
+                    f"Only letters are valid guesses, but you guessed {this_guess}"
                     )
                 elif this_guess not in word:
                     print(f"{colors.RED}{this_guess} is not in the word. You lose a life!{colors.RESET}")
@@ -439,7 +439,7 @@ def make_guess(num_lives):
                                                                               
                                                                               \n\nUnlucky! You ran out of lives! \n\nThe correct word was {word}{colors.RESET}\n""")
             except ValueError as e:
-                        print(f"\n{colors.RED}{e}.\n Please try again.{colors.RESET}\n")
+                        print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
     if game_over == True:       
         print(f"""Would you like to:
         {colors.RED}1. View the leaderboard
