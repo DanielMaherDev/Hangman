@@ -238,9 +238,9 @@ def start_game():
     print("""
 
  __ __   ____  ____    ____  ___ ___   ____  ____
-|  |  | /    ||    \  /    ||   |   | /    ||    \ 
+|  |  | /    ||    \\ /    ||   |   | /    ||    \\
 |  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
-|  _  ||     ||  |  ||  |  ||  \_/  ||     ||  |  |
+|  _  ||     ||  |  ||  |  || \\_/  ||     ||  |  |
 |  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
 |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
@@ -308,14 +308,7 @@ Please enter a valid option, using the number which corresponds to """
 
 
 def set_difficulty():
-    print(f"""  ___   _    _  _____  _____  _____ ___  ___ _____ 
- / _ \ | |  | ||  ___|/  ___||  _  ||  \/  ||  ___|
-/ /_\ \| |  | || |__  \ `--. | | | || .  . || |__  
-|  _  || |/\| ||  __|  `--. \| | | || |\/| ||  __| 
-| | | |\  /\  /| |___ /\__/ /\ \_/ /| |  | || |___ 
-\_| |_/ \/  \/ \____/ \____/  \___/ \_|  |_/\____/ 
-                                                   
-                                                   
+    print(f"""
 Lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
     {colors.CYAN}2. Medium\n
@@ -420,36 +413,36 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
                         game_over = True
-                        print(f"""\n{colors.GREEN}  
+                        print(f"""\n{colors.GREEN}
  /$$     /$$  /$$$$$$  /$$   /$$       /$$      /$$ /$$$$$$ /$$   /$$
 |  $$   /$$/ /$$__  $$| $$  | $$      | $$  /$ | $$|_  $$_/| $$$ | $$
- \  $$ /$$/ | $$  \ $$| $$  | $$      | $$ /$$$| $$  | $$  | $$$$| $$
-  \  $$$$/  | $$  | $$| $$  | $$      | $$/$$ $$ $$  | $$  | $$ $$ $$
-   \  $$/   | $$  | $$| $$  | $$      | $$$$_  $$$$  | $$  | $$  $$$$
-    | $$    | $$  | $$| $$  | $$      | $$$/ \  $$$  | $$  | $$\  $$$
-    | $$    |  $$$$$$/|  $$$$$$/      | $$/   \  $$ /$$$$$$| $$ \  $$
-    |__/     \______/  \______/       |__/     \__/|______/|__/  \__/
-                                                                                       
+\\  $$ /$$/ | $$ \\ $$| $$  | $$      | $$ /$$$| $$  | $$  | $$$$| $$
+ \\  $$$$/  | $$  | $$| $$  | $$      | $$/$$ $$ $$  | $$  | $$ $$ $$
+  \\  $$/   | $$  | $$| $$  | $$      | $$$$_  $$$$  | $$  | $$  $$$$
+    | $$    | $$  | $$| $$  | $$      | $$$/\\  $$$  | $$  | $$  $$$
+    | $$    |  $$$$$$/|  $$$$$$/      | $$/  \\  $$ /$$$$$$| $$\\  $$
+    |__/    \\______/ \\______/       |__/    \\__/|______/|__/ \\__/
+
 {colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.
 
-You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" + 
+You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" +
                               """remaining!""")
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
-                        print('\nYour Score has been added to the leaderboard')       
+                        print('\nYour Score has been added to the leaderboard')
                 if num_lives == 0:
                     game_over = True
                     print(HANGMAN[hangman_start_number] + '\n')
-                    print(f"""{colors.RED} 
+                    print(f"""{colors.RED}
  /$$     /$$  /$$$$$$  /$$   /$$       /$$        /$$$$$$   /$$$$$$  /$$$$$$$$
 |  $$   /$$/ /$$__  $$| $$  | $$      | $$       /$$__  $$ /$$__  $$| $$_____/
- \  $$ /$$/ | $$  \ $$| $$  | $$      | $$      | $$  \ $$| $$  \__/| $$      
-  \  $$$$/  | $$  | $$| $$  | $$      | $$      | $$  | $$|  $$$$$$ | $$$$$   
-   \  $$/   | $$  | $$| $$  | $$      | $$      | $$  | $$ \____  $$| $$__/   
-    | $$    | $$  | $$| $$  | $$      | $$      | $$  | $$ /$$  \ $$| $$      
+\\  $$ /$$/ | $$ \\ $$| $$  | $$      | $$      | $$ \\ $$| $$ \\__/| $$
+ \\  $$$$/  | $$  | $$| $$  | $$      | $$      | $$  | $$|  $$$$$$ | $$$$$
+  \\  $$/   | $$  | $$| $$  | $$      | $$      | $$  | $$\\____  $$| $$__/
+    | $$    | $$  | $$| $$  | $$      | $$      | $$  | $$ /$$ \\ $$| $$
     | $$    |  $$$$$$/|  $$$$$$/      | $$$$$$$$|  $$$$$$/|  $$$$$$/| $$$$$$$$
-    |__/     \______/  \______/       |________/ \______/  \______/ |________/
+    |__/    \\______/ \\______/       |________/\\______/ \\______/ |________/
 
 
 Unlucky! You ran out of lives!\nThe correct word was {word}{colors.RESET}\n""")
@@ -491,7 +484,7 @@ def main():
         num_lives = set_difficulty()
         make_guess(num_lives)
     elif main_menu_choice == "2":
-        read_rules()    
+        read_rules()
     elif main_menu_choice == "3":
         display_leaderboard()
     else:
