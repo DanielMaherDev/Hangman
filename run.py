@@ -77,11 +77,11 @@ HANGMAN = (
  |    |
  |    O
  |   -+-
- | 
- |   
- |   
- |   
- |   
+ |
+ |
+ |
+ |
+ |
 ----------
 """,
         """
@@ -89,11 +89,11 @@ HANGMAN = (
  |    |
  |    O
  |  /-+-
- |   
- |   
- |   
- |   
- |   
+ |
+ |
+ |
+ |
+ |
 ----------
 """,
         """
@@ -101,23 +101,11 @@ HANGMAN = (
  |    |
  |    O
  |  /-+-/
- |   
- |   
- |   
- |   
- |   
-----------
-""",
-        """
- ------
- |    |
- |    O
- |  /-+-/
- |    |
- |   
- |   
- |   
- |   
+ |
+ |
+ |
+ |
+ |
 ----------
 """,
         """
@@ -126,10 +114,22 @@ HANGMAN = (
  |    O
  |  /-+-/
  |    |
+ |
+ |
+ |
+ |
+----------
+""",
+        """
+ ------
  |    |
- |   | 
- |   | 
- |   
+ |    O
+ |  /-+-/
+ |    |
+ |    |
+ |   |
+ |   |
+ |
 ----------
 """,
         """
@@ -141,14 +141,14 @@ HANGMAN = (
  |    |
  |   | |
  |   | |
- |  
+ |
 ----------
 """)
 
 
 def read_rules():
     print(f"""\n    {colors.BOLD}RULES
-    
+
     {colors.RED}1. Choose your difficulty{colors.RESET}
             - Easy = 9 lives
             - Medium = 7 lives
@@ -159,9 +159,10 @@ def read_rules():
               If the letter is in the word, it will show up, wherever in the
               word it is present!
 
-    {colors.RED}3. You WIN by guessing the full word and saving HangMan{colors.RESET}
-
-    {colors.RED}4. You LOSE if you run out of lives and HangMan is hung{colors.RESET}
+    {colors.RED}3. You WIN by guessing the full word and saving HangMan
+    {colors.RESET}
+    {colors.RED}4. You LOSE if you run out of lives and HangMan is hung
+    {colors.RESET}
 
     What would you like to do?
 
@@ -182,7 +183,8 @@ def read_rules():
                 display_leaderboard()
             else:
                 raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your selection\n""")
+Please enter a valid option, using the number which corresponds to your""" +
+                                 "selection\n")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
 
@@ -200,7 +202,8 @@ def display_leaderboard():
         for i in range(0, 3):
             score[i] = "{:<15}".format(score[i])
        
-        print(f"{colors.BOLD}{score[0]}{colors.RESET} {score[1]} {colors.GREEN}{score[2]}{colors.RESET}")
+        print(f"{colors.BOLD}{score[0]}{colors.RESET} {score[1]}"
+              + f"{colors.GREEN}{score[2]}{colors.RESET}")
     print("\n-----------------------------------")
     print(f"""What would you like to do?\n
     {colors.BLUE}1. Play Game\n
@@ -219,9 +222,11 @@ def display_leaderboard():
                 read_rules()
             else:
                 raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your selection\n""")
+Please enter a valid option, using the number which corresponds to your""" +
+                                 "selection\n")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
+
 
 def start_game():
     global guesses
@@ -232,7 +237,7 @@ def start_game():
     """
     print("""
 
- __ __   ____  ____    ____  ___ ___   ____  ____  
+ __ __   ____  ____    ____  ___ ___   ____  ____
 |  |  | /    ||    \  /    ||   |   | /    ||    \ 
 |  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
 |  _  ||     ||  |  ||  |  ||  \_/  ||     ||  |  |
@@ -246,7 +251,7 @@ def start_game():
 
     print('What is your name? \n')
 
-    global name 
+    global name
     name = ""
     name_given = False
     while name_given is False:
@@ -276,8 +281,8 @@ Would you like to:\n
 {colors.BLUE}1. Start Game \n
 {colors.RED}2. Read Rules \n
 {colors.GREEN}3. View Leaderboard{colors.RESET} \n""")
-                print(f'Please enter the {colors.RED}number{colors.RESET} which corresponds to your'
-                      + 'selection! \n')
+                print(f'Please enter the {colors.RED}number{colors.RESET} '
+                      + "which corresponds to your selection! \n")
                 choice_made = False
                 while choice_made is False:
                     main_menu_choice = input('Number:\n')
@@ -292,8 +297,10 @@ Would you like to:\n
                             return main_menu_choice
                             choice_made = True
                         else:
-                            raise ValueError("""WHOOPS! That is not a valid option!\n
-            Please enter a valid option, using the number which corresponds to your selection\n""")
+                            raise ValueError("""
+WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number which corresponds to """
+                                             + """your selection\n""")
                     except ValueError as e:
                         print(f"{colors.RED}{e}{colors.RESET}")
         except ValueError as e:
@@ -330,10 +337,12 @@ Lets play! \n \nYou have 3 Levels of Difficulty:\n
                 choice_made = True
             else:
                 raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your selection\n""")
+Please enter a valid option, using the number which corresponds to your"""
+                                 + """ selection\n""")
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
+
 
 def get_word():
     nm = random.randint(0, len(list_of_words)-1)
@@ -356,7 +365,9 @@ def make_guess(num_lives):
     guess_number = 0
     word = get_word()
 
-    print(f'\nLets do this!\n \nYour word contains {colors.GREEN}{len(word)}{colors.RESET} characters')
+    print(f"""\nLets do this!
+
+Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
     word_blank = "_" * len(word)
     word_blanks_as_list = [i for i in word_blank]
     word_as_list = [i for i in word]
@@ -364,29 +375,26 @@ def make_guess(num_lives):
     game_over = False
     while not game_over and num_lives > 0:
         print(HANGMAN[hangman_start_number] + '\n')
-        print(f'Your word: {word_blank} \n')
+        print(f' word: {word_blank} \n')
 
         print(f'You have {num_lives} lives! \n')
         guess_made = False
-        while guess_made == False:
+        while guess_made is False:
             if guess_number > 0:
                 guess_list = " ".join(guesses)
                 print(f'\nGuesses: {colors.BOLD}{guess_list}{colors.RESET} \n')
             this_guess = input('Please choose a letter to guess:\n').lower()
             try:
                 if len(this_guess) > 1:
-                    raise ValueError(
-                    f'You can only guess 1 letter, but you guessed {len(this_guess)} characters!'
-                    )
+                    raise ValueError('You can only guess 1 letter, but you' +
+                                     f'guessed {len(this_guess)} characters!'
+                                     )
                 elif this_guess == "":
-                    raise ValueError(
-                    f'You need to enter a guess.'
-                    )
-                elif (len(this_guess) == 1 and this_guess.isalpha() 
-                    and this_guess in guesses):
-                    raise ValueError(
-                    f'"{this_guess}" has already been guessed.'
-                    )
+                    raise ValueError('You need to enter a guess.')
+                elif (len(this_guess) == 1 and this_guess.isalpha()
+                      and this_guess in guesses):
+                    raise ValueError(f'"{this_guess}" has already been'
+                                     + 'guessed')
                 elif not this_guess.isalpha():
                     raise ValueError(
                     f"Only letters are valid guesses, but you guessed {this_guess}"
