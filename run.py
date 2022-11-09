@@ -466,7 +466,8 @@ You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" +
    ╚═╝    ╚═════╝  ╚═════╝     ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
 
 
-Unlucky! You ran out of lives!\nThe correct word was {word}{colors.RESET}\n""")
+Unlucky! You ran out of lives!\nThe correct word was""" +
+f"""{colors.BOLD} {word.upper()}{colors.RESET}\n""")
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
     if game_over is True:
@@ -491,7 +492,7 @@ Unlucky! You ran out of lives!\nThe correct word was {word}{colors.RESET}\n""")
                 else:
                     raise ValueError("""WHOOPS! That is not a valid option!\n
 Please enter a valid option, using the number which corresponds to your"""
-                                     + "selection\n")
+                                     + " selection\n")
             except ValueError as e:
                 print(f"{colors.RED}{e}{colors.RESET}")
 
