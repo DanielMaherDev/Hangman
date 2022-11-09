@@ -3,22 +3,23 @@ from google.oauth2.service_account import Credentials
 import random
 from words import list_of_words
 
-SCOPE = [
+SCOPE = [  # scope of authorization for google sheets
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
 
+# vars used to access Google Sheets
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Leaderboard')
 
 global guesses
-guesses = []
+guesses = []  # previously guessed letters
 
 
-class colors:
+class colors:  # print to terminal in different colors
     RED = "\033[1;31m"
     BLUE = "\033[1;34m"
     CYAN = "\033[1;36m"
@@ -28,7 +29,8 @@ class colors:
     REVERSE = "\033[;7m"
 
 
-HANGMAN = (
+HANGMAN = (  # Array of hangman visuals to print
+
         """
 
 
@@ -147,6 +149,10 @@ HANGMAN = (
 
 
 def read_rules():
+    """
+    Display rules of game
+
+    """
     print(f"""\n    {colors.BOLD}RULES
 
     {colors.RED}1. Choose your difficulty{colors.RESET}
@@ -190,14 +196,20 @@ Please enter a valid option, using the number which corresponds to your""" +
 
 
 def display_leaderboard():
+    """
+    Display top results of previous games in a leaderboard
+    """
+    # The leaderboard calculation is done outside this project in Google Sheets
     leaderboard = SHEET.worksheet("leaderboard_sorted")
     scores = leaderboard.get_all_values()
     headers = scores.pop(0)
     i = 1
+    #  display table headers for leaderboard
     for i in range(0, 3):
         headers[i] = "{:<15}".format(headers[i])
     print(f"""\nLEADERBOARD - TOP 10\n\n-----------------------------------
 {colors.BOLD}{headers[0]} {headers[1]} {headers[2]}{colors.RESET}\n""")
+#  display top 10 results
     for score in scores[0:10]:
         for i in range(0, 3):
             score[i] = "{:<15}".format(score[i])
@@ -229,12 +241,12 @@ Please enter a valid option, using the number which corresponds to your""" +
 
 
 def start_game():
+    """
+    Initial screen upon game load, provides game options
+    """
     global guesses
     guesses = []
 
-    """
-    Initial screen upon game load
-    """
     print(f"""{colors.RED}
 
  ██░ ██  ▄▄▄       ███▄    █   ▄████  ███▄ ▄███▓ ▄▄▄       ███▄    █
@@ -266,7 +278,7 @@ def start_game():
                 raise ValueError('please enter a name of 10 or less'
                                  + ' characters')
             if not name.isalnum():
-                raise ValueError('Please enter a name')
+                raise ValueError('Please enter a name using letters a-z')
             else:
                 name_given = True
                 print(f"\nWelcome, {colors.GREEN}{name}{colors.RESET}")
@@ -310,6 +322,9 @@ Please enter a valid option, using the number which corresponds to """
 
 
 def set_difficulty():
+    """
+    Provides difficulty options upon choosing to play game
+    """
     print(f"""
 Lets play! \n \nYou have 3 Levels of Difficulty:\n
     {colors.GREEN}1. Easy\n
@@ -340,13 +355,18 @@ Please enter a valid option, using the number which corresponds to your"""
 
 
 def get_word():
+    """
+    Gets word from list of words
+    """
     nm = random.randint(0, len(list_of_words)-1)
-    print(nm)
     word = list_of_words[nm]
     return word
 
 
 def make_guess(num_lives):
+    """
+    Initialises game and provides input to take user guesses and respond
+    """
     guesses = []
     if num_lives == 5:
         difficulty = 'Hard'
@@ -409,11 +429,13 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
                     guess_made = True
                     x = 0
                     while x < len(word):
+                        # check if letter guessed in equal to any letter
                         if this_guess == word_as_list[x]:
                             word_blanks_as_list[x] = this_guess
                         x = x+1
                     word_blank = "".join(word_blanks_as_list)
                     if word_blank == word:
+                        # check if full word guessed
                         game_over = True
                         print(f"""\n{colors.GREEN}
 ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗
@@ -427,12 +449,12 @@ Your word contains {colors.GREEN}{len(word)}{colors.RESET} characters""")
 {colors.RESET}The word was {colors.GREEN}{word.upper()}{colors.RESET}.
 
 You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" +
-                              """remaining!""")
+                              """ remaining!""")
                         new_score = [name, difficulty, num_lives]
                         worksheet_to_update = SHEET.worksheet('leaderboard')
                         worksheet_to_update.append_row(new_score)
                         print('\nYour Score has been added to the leaderboard')
-                if num_lives == 0:
+                if num_lives == 0:  # lose game
                     game_over = True
                     print(HANGMAN[hangman_start_number] + '\n')
                     print(f"""{colors.RED}
