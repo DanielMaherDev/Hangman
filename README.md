@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Site Overview](#site-overview)
+- [Project Overview](#project-overview)
   - [Goal](#goal)
   - [Technologies used](#technologies-used)
 - [UX](#ux)
@@ -20,8 +20,14 @@
     - [Version Control](#version-control)
 - [Acknowledgments](#acknowledgments)
 
-## Site Overview
+## Project Overview
+This project is based on the game HangMan.
+In this game, the user must guess the full word before hangman is hung.
+This is done by guessing a letter in the word.
+If the letter is right, it is placed in the blank spaces that make up the word.
+If it is not, the user loses a life. The word must be guessed before the user runs out of lives.
 
+Furthermore, I have added different difficulties to the game, along with a leaderboard displaying the top 10 players.
 
 ## Goal
 
