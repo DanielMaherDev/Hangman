@@ -87,10 +87,11 @@ The leaderboard screen provides the user with information on the current highest
 I designed this project on the basis of the below flowchart. This is a simple idea of the structure I wanted to follow.
 ![Flowchart](readmeimages/flowchart.jpg)
 
-
 ## Testing
 
 ## Future Features
+- I would like to make it so that the leaderboard functionality (calculations etc) is done within the application.
+- I would also like to add different word lists for the different difficulties
 
 ## Deployment 
 This website is deployed to GitHub.
