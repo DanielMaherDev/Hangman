@@ -89,9 +89,12 @@ I designed this project on the basis of the below flowchart. This is a simple id
 
 ## Bugs
 
+Any bugs listd below have now been fixed
+
 | Bug        | Fix |     
 | ------------- |:-------------|
-| Upon playing the game for the second time within the same session, the previous games guesses would be guessed by fefault in the second game| I reset the var which holds previous guesses when a new game has been started |     
+| Upon playing the game for the second time within the same session, the previous games guesses would be guessed by default in the second game| I reset the var which holds previous guesses when a new game has been started |     
+| On the final question, if the player won the final hangman image would not show| I ammended the way in which the hangman images are chosen from the array | 
 
 ## Future Features
 - I would like to make it so that the leaderboard functionality (calculations etc) is done within the application.
