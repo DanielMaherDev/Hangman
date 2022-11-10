@@ -1,31 +1,72 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![HangMan Hero Image](readmeimages/hero-image.jpg)
 
-Welcome DanielMaherDev,
+## Table of Contents
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+- [Table of Contents](#table-of-contents)
+- [Site Overview](#site-overview)
+  - [Goal](#goal)
+  - [Technologies used](#technologies-used)
+- [UX](#ux)
+  - [User Stories](#user-stories)
+- [Features](#features)
+- [Design](#design)
+- [Testing](#testing)
+- [Future Features](#future-features)
+- [Deployment](#deployment)
+- [Cloning](#cloning)
+- [Forking](#forking)
+- [Credits](#credits)
+  - [Code](#code)
+    - [Version Control](#version-control)
+- [Acknowledgments](#acknowledgments)
 
-## Reminders
+## Site Overview
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+## Goal
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Technologies used
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## UX
 
-Connect your GitHub repository and deploy as normal.
+## User Stories
 
-## Constraints
+## Features
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Design
 
------
-Happy coding!
+## Testing
+
+## Future Features
+
+## Deployment 
+This website is deployed to GitHub.
+To deploy to GitHub, I completed the following steps
+1. Login or signup to [GitHub](https://github.com/)
+2. Find the relevant repo, which is in this case ['answertime'](https://github.com/DanielMaherDev/answertime)
+3. Go to the repository settings, and within here select 'pages'
+5. Select `main` in the Source drop down box below the 'Build and deployment' title and click save.
+6. Wait for the live site to become active. Upon reloading a link will appear for the site
+
+## Cloning
+1. On GitHub.com, navigate to the main page of the repository which is ['here'](https://github.com/DanielMaherDev/answertime)
+2. Above the list of files, click  Code.
+3. Copy the URL for the repository.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter to create your local clone.
+
+## Forking
+1. Login or signup to [GitHub](https://github.com/)
+2. Find the relevant repo, which is in this case ['answertime'](https://github.com/DanielMaherDev/answertime)
+3. Click on the 'Fork' button in the upper left.
+4. Your forked version of this repo will be generated!
+
+### Version Control
+
+# Acknowledgments
+
+
