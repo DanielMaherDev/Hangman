@@ -87,7 +87,11 @@ The leaderboard screen provides the user with information on the current highest
 I designed this project on the basis of the below flowchart. This is a simple idea of the structure I wanted to follow.
 ![Flowchart](readmeimages/flowchart.jpg)
 
-## Testing
+## Bugs
+
+| Bug        | Fix |     
+| ------------- |:-------------|
+| Upon playing the game for the second time within the same session, the previous games guesses would be guessed by fefault in the second game| I reset the var which holds previous guesses when a new game has been started |     
 
 ## Future Features
 - I would like to make it so that the leaderboard functionality (calculations etc) is done within the application.
