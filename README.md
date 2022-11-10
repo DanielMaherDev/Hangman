@@ -62,12 +62,25 @@ It provides the user with an introduction, along with an input to enter the user
 
 ![Welcome Section](readmeimages/welcome-section.jpg)
 
-### Welcome Section
+### Options Section
 
 The options section allows the user to input what they would like to do 
 i.e. Start game, view rules, view leaderboard.
 Variations of this screen appear depending on what section you are currently in.
+
 ![Options Section](readmeimages/options-section.jpg)
+
+### Main Game Section
+
+The main game screen provides all information regarding the users current game of hangman.
+This includes the remaining lives, previous guesses, and the correct guesses in the word.
+
+![Main Game Section](readmeimages/main-game-section.jpg)
+
+### Leaderboard Section
+
+The leaderboard screen provides the user with information on the current highest scores. This is calculated and returned from a Google Sheet
+![Leaderboard Section](readmeimages/leaderboard-section.jpg)
 
 ## Design
 
