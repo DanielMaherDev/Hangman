@@ -16,7 +16,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Leaderboard')
 
 global guesses
+global invalid_option
 guesses = []  # previously guessed letters
+invalid_option = """WHOOPS! That is not a valid option!\n
+Please enter a valid option, using the number
+which corresponds to your selection\n"""
 
 
 class colors:  # print to terminal in different colors
@@ -188,9 +192,7 @@ def read_rules():
                 choice_made = True
                 display_leaderboard()
             else:
-                raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your""" +
-                                 " selection\n")
+                raise ValueError(invalid_option)
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
 
@@ -233,9 +235,7 @@ def display_leaderboard():
                 choice_made = True
                 read_rules()
             else:
-                raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your""" +
-                                 " selection\n")
+                raise ValueError(invalid_option)
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
 
@@ -311,10 +311,7 @@ Would you like to:\n
                             return main_menu_choice
                             choice_made = True
                         else:
-                            raise ValueError("""
-WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to """
-                                             + """your selection\n""")
+                            raise ValueError(invalid_option)
                     except ValueError as e:
                         print(f"{colors.RED}{e}{colors.RESET}")
         except ValueError as e:
@@ -346,9 +343,7 @@ Lets play! \n \nYou have 3 Levels of Difficulty:\n
                 num_lives = 5
                 choice_made = True
             else:
-                raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your"""
-                                 + """ selection\n""")
+                raise ValueError(invalid_option)
         except ValueError as e:
             print(f"{colors.RED}{e}{colors.RESET}")
     return num_lives
@@ -467,7 +462,7 @@ You finished with {colors.GREEN}{num_lives}{colors.RESET} guesses""" +
 
 
 Unlucky! You ran out of lives!\nThe correct word was""" +
-f"""{colors.BOLD} {word.upper()}{colors.RESET}\n""")
+                          f"""{colors.BOLD} {word.upper()}{colors.RESET}\n""")
             except ValueError as e:
                 print(f"\n{colors.RED}{e}.\nPlease try again.{colors.RESET}\n")
     if game_over is True:
@@ -490,9 +485,7 @@ f"""{colors.BOLD} {word.upper()}{colors.RESET}\n""")
                     choice_made = True
                     read_rules()
                 else:
-                    raise ValueError("""WHOOPS! That is not a valid option!\n
-Please enter a valid option, using the number which corresponds to your"""
-                                     + " selection\n")
+                    raise ValueError(invalid_option)
             except ValueError as e:
                 print(f"{colors.RED}{e}{colors.RESET}")
 
