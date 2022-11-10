@@ -84,6 +84,10 @@ The leaderboard screen provides the user with information on the current highest
 
 ## Design
 
+I designed this project on the basis of the below flowchart. This is a simple idea of the structure I wanted to follow.
+![Flowchart](readmeimages/flowchart.jpg)
+
+
 ## Testing
 
 ## Future Features
