@@ -36,12 +36,12 @@ My goal is to utilise my knowledge of python to create a game which gathers user
 I utilised this to create the main function of the game, as well as to collect data to add to the leaderboard.
 
 ## Technologies used
--<b>Python</b> for the main game-play.
--<b>[Heroku](https://heroku.com)</b> to deploy the website.
--</b>[GitHub](https://github.com/)</b> as a remote repository.
--</b>[GitPod](https://www.gitpod.io)</b> as a local repository and for editing code
--</b>[LucidApp](https://lucid.app/)</b> for creating charts
--</b>[Google Sheets](https://sheets.google.com/)</b> (API) for the leadboard
+- <b>Python</b> for the main game-play.
+- <b>[Heroku](https://heroku.com)</b> to deploy the website.
+- </b>[GitHub](https://github.com/)</b> as a remote repository.
+- </b>[GitPod](https://www.gitpod.io)</b> as a local repository and for editing code
+- </b>[LucidApp](https://lucid.app/)</b> for creating charts
+- </b>[Google Sheets](https://sheets.google.com/)</b> (API) for the leadboard
 
 ## UX
 
