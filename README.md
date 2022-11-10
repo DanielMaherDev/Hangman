@@ -37,11 +37,11 @@ I utilised this to create the main function of the game, as well as to collect d
 
 ## Technologies used
 -<b>Python</b> for the main game-play.
--Heroku to deploy the website.
--GitHub as a remote repository.
--GitPod as a local repository and for editing code
--https://lucid.app/ for creating charts
--[Google Sheets](https://sheets.google.com/) (API) for the leadboard
+-<b>[Heroku](https://heroku.com)</b> to deploy the website.
+-</b>[GitHub](https://github.com/)</b> as a remote repository.
+-</b>[GitPod](https://www.gitpod.io)</b> as a local repository and for editing code
+-</b>[LucidApp](https://lucid.app/)</b> for creating charts
+-</b>[Google Sheets](https://sheets.google.com/)</b> (API) for the leadboard
 
 ## UX
 
