@@ -22,15 +22,18 @@
 
 ## Project Overview
 This project is based on the game HangMan.
-In this game, the user must guess the full word before hangman is hung.
-This is done by guessing a letter in the word.
-If the letter is right, it is placed in the blank spaces that make up the word.
+
+In this game, the user must guess the full word before hangman is hung. This is done by guessing a letter in the word.
+
+If the guess is right, it is placed in the blank spaces that make up the word.
 If it is not, the user loses a life. The word must be guessed before the user runs out of lives.
 
 Furthermore, I have added different difficulties to the game, along with a leaderboard displaying the top 10 players.
 
 ## Goal
 
+My goal is to utilise my knowledge of python to create a game which gathers user inputs and provides responses based on the input given.
+I utilised this to create the main function of the game, as well as to collect data to add to the leaderboard.
 
 ## Technologies used
 
