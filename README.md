@@ -45,9 +45,23 @@ I utilised this to create the main function of the game, as well as to collect d
 
 ## UX
 
-## User Stories
+### User Stories
+
+| User story        | Implementation |     
+| ------------- |:-------------|
+| User would like to select their preferred difficulty| Set difficulty at game start |     
+| User would like a visual representation of their progress in the game| Added HangMan ASCII images to correlate with progress in game |     
+| User would like to compare their score with that of other players| Add a leaderboard which calculates top 10 players |
 
 ## Features
+
+### Welcome Section
+
+The welcome section is the screen the end user is presented with on page load. 
+It provides the user with an introduction, along with an input to enter the users name. This is validated before continuing.
+
+![Welcome Section](readmeimages/welcome-section.jpg)
+
 
 ## Design
 
